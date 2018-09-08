@@ -25,9 +25,17 @@ Agregar repositorio remoto
 
     $ git remote add <remote_name> <git repo url>
 
-Descargar o super cambios a repositio remoto
+Descargar todas las ramas
 
-    $ git pull/push <remote_name> <branch>
+    $ git fetch
+
+Descargar cambios a repositio remoto
+
+    $ git pull <remote_name> <branch>
+
+Subir cambios a repositio remoto
+
+    $ git push <remote_name> <branch>
 
 Status actual de cambios
 
