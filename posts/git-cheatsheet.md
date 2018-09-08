@@ -5,9 +5,25 @@ category: annex
 
 # Git Cheat Sheet
 
+Configurar author email
+
+    $ git config --global author.email <my emails>
+
+Configurar author name
+
+    $ git config --global author.name "<my name>"
+
+Configurar mergetool
+
+    $ git config --global merge.tool opendiff
+
 Inicializar control de versiones en el directorio actual
 
     $ git init .
+
+Clonar repositio existente
+
+    $ git clone <remote url .git>
 
 Agregar archivos al control de versiones
 
@@ -80,7 +96,6 @@ Historial de cambios en una sola linea
 Auto rebase
 
     $ git rebase -i <commit hash>
-
 
 Cherry Pick
 
