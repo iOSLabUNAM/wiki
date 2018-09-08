@@ -1,7 +1,6 @@
 ---
 title: Solid
 category: annex
-draft: true
 ---
 # S.O.L.I.D.
 

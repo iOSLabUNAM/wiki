@@ -11,12 +11,19 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Roles de equipo](posts/team-roles)
 - [Metodologías Ágiles](posts/agile)
 - [Git workflows](posts/gitflows)
-- [desarrollo orientado a pruebas](posts/tdd)
+- [Desarrollo orientado a pruebas](posts/tdd)
+
+## Desarrollo iOS
+
+- [Consumo de datos](posts/data-consumption)
+- [Persistencia de datos](posts/data-persistence)
 
 
 ## Patrones de diseño
 - [MVC](posts/mvc)
 - [MVVM](posts/mvvm)
+- [SOLID](posts/solid)
 
 ## Anexo
-- [Unit Test Cheatsheet](/posts/unit-tests-cheatsheet)
+- [Unit Test Cheatsheet](posts/unit-tests-cheatsheet)
+- [Mejores Prácticas](posts/best-practices)

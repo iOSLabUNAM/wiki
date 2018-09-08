@@ -1,6 +1,6 @@
 ---
 title: Flujos de trabajo con git
-category: workflow
+category: design patterns
 ---
 
 # Flujos de trabajo con git
