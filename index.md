@@ -6,8 +6,6 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ## Trabajo colaborativo
 
-### Flujos de trabajo (workflows)
-
 - [Roles de equipo](posts/team-roles)
 - [Metodologías Ágiles](posts/agile)
 - [Git workflows](posts/gitflows)
