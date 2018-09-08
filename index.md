@@ -9,7 +9,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 ### Flujos de trabajo (workflows)
 
 - [Roles de equipo](/posts/team-roles)
-- [Metodologías Ágiles](posts/agile)
+- [Metodologías Ágiles](/posts/agile)
 - [Git workflows](/posts/gitflows)
 - [desarrollo orientado a pruebas](/posts/tdd)
 
