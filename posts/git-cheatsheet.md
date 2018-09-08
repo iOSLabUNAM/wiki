@@ -5,6 +5,8 @@ category: annex
 
 # Git Cheat Sheet
 
+## Configuracion inicial
+
 Configurar author email
 
     $ git config --global author.email <my emails>
@@ -17,6 +19,8 @@ Configurar mergetool
 
     $ git config --global merge.tool opendiff
 
+## Inicializar repositio
+
 Inicializar control de versiones en el directorio actual
 
     $ git init .
@@ -24,6 +28,9 @@ Inicializar control de versiones en el directorio actual
 Clonar repositio existente
 
     $ git clone <remote url .git>
+
+
+## Adds & Commits
 
 Agregar archivos al control de versiones
 
@@ -36,6 +43,8 @@ Agregar cambios selectivamente al control de versiones
 Realizar un commit
 
     $ git commit -m "here goes a message"
+
+## Repositorios remotos
 
 Agregar repositorio remoto
 
@@ -53,37 +62,15 @@ Subir cambios a repositio remoto
 
     $ git push <remote_name> <branch>
 
+## Informacion
+
 Status actual de cambios
 
     $ git status
 
-Poner cambios en la rama fantasma **stash**
+Diferencias en cambios
 
-    $ git stash
-
-Extraer de pila de la rama fantasma
-
-    $ git stash pop
-
-Rebasar cambios en local
-
-    $ git rebase <branch name>
-
-Poner los cambios de la rama adelante de una rama remota
-
-    $ git pull --rebase <remote> <branch name>
-
-Combinar branch a la rama actual
-
-    $ git merge <branch name>
-
-Borrar rama local
-
-    $ git branch -D <branch name>
-
-Borrar rama remota
-
-    $ git push <remote> :<branch name>
+    $ git diff
 
 Historial de cambios
 
@@ -93,7 +80,57 @@ Historial de cambios en una sola linea
 
     $ git log --oneline
 
-Auto rebase
+## Branches
+
+Crear branch
+
+    $ git branch <my-branch-name>
+
+Renombrar branch actual
+
+    $ git branch -m <my-new-branch-name>
+
+Borrar rama local
+
+    $ git branch -D <branch name>
+
+Borrar rama remota
+
+    $ git push <remote> :<branch name>
+
+Moverse a rama
+
+    $ git checkout <branch-name>
+
+Moverse a rama y crearla
+
+    $ git checkout -b <branch-name>
+
+Poner cambios en la rama temporal **stash**
+
+    $ git stash
+
+Extraer de pila de la rama temporal
+
+    $ git stash pop
+
+## Merge & Rebase
+
+Combinar branch a la rama actual
+
+    $ git merge <branch name>
+
+Rebasar cambios en local
+
+    $ git rebase <branch name>
+
+Poner los cambios de la rama adelante de una rama remota
+
+    $ git pull --rebase <remote> <branch name>
+
+## Comandos Avanzados
+
+Squash commits con autorebase
 
     $ git rebase -i <commit hash>
 
