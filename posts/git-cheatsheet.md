@@ -7,11 +7,11 @@ category: annex
 
 ## Configuracion inicial
 
-Configurar author email
+Configurar email
 
     $ git config --global author.email <my emails>
 
-Configurar author name
+Configurar nombre
 
     $ git config --global author.name "<my name>"
 
@@ -19,13 +19,13 @@ Configurar mergetool
 
     $ git config --global merge.tool opendiff
 
-## Inicializar repositio
+## Inicializar repositorio
 
 Inicializar control de versiones en el directorio actual
 
     $ git init .
 
-Clonar repositio existente
+Clonar repositorio existente
 
     $ git clone <remote url .git>
 
@@ -54,11 +54,11 @@ Descargar todas las ramas
 
     $ git fetch
 
-Descargar cambios a repositio remoto
+Descargar cambios a repositorio remoto
 
     $ git pull <remote_name> <branch>
 
-Subir cambios a repositio remoto
+Subir cambios a repositorio remoto
 
     $ git push <remote_name> <branch>
 
