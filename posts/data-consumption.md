@@ -83,16 +83,81 @@ Encapsula dos elementos basicos al cargar un request: la URL y la politica de ca
 #### [URLRequest](https://developer.apple.com/documentation/foundation/urlrequest)
 
 - `httpMethod` es un attributo String de *URLRequest* que debe conformar cualquier metodo del protocolo de http: *GET*, *POST*, *PUT*, *PATCH*, *DELETE*, *HEADER*, *OPTIONS*
-- `httpBody` es un attributo Data que contiene el contenido del cuerpo
+- `httpBody` es un atributo Data que contiene el contenido del cuerpo
 
 #### Ejemplo
 ```swift
-var req = URLRequest(url: URL(string: "https://example.com"))
-req.httpMethod = "GET"
-req.httpBody = body
-req.addValue("Bearer <User Token>", forHTTPHeaderField: "Authorization")
+var request = URLRequest(url: URL(string: "https://example.com"))
+request.httpMethod = "GET"
+request.httpBody = body
+request.addValue("Bearer secrettoken123", forHTTPHeaderField: "Authorization")
+```
 
-let session = URLSession.shared
-let task = session.dataTask(with: req, completionHandler: completion)
-task.resume()
+---
+
+## Request body
+
+Todo objeto que puede ser casteado a *Data* puede añadirse a un request `httpBody`
+
+### Texto plano
+```swift
+request.httpBody = "Lorem ipsum dolor sit amet".data(using: .utf8)!
+```
+
+### JSON con Codable
+```swift
+request.httpBody = try? JSONEncoder().encode(<Compliant with Encodable Protocol>)
+```
+
+### Multipart
+
+Extend Data to allow append data from strings
+```swift
+extension Data {
+    mutating func append(string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
+    }
+}
+```
+
+Set boundary in Contet-Type header
+```swift
+let boundary = NSUUID().uuidString // the boundary act as a separator per field
+request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+```
+
+Construct multipart image
+```swift
+class func multipartImage(data imageData: Data, boundary: String, fileName: String) -> Data {
+    var bodyData = Data()
+
+    // 1 - Data should start with boundary
+    bodyData.append(string: "--\(boundary)\r\n")
+
+    // 2 - image png format for avatar field
+    bodyData.append(string: "Content-Disposition: form-data; name=\"avatar\"; filename=\"\(fileName)\"\r\n")
+    bodyData.append(string: "Content-Type: image/png\r\n\r\n")
+    bodyData.append(imageData)
+    bodyData.append(string: "\r\n")
+
+    // 3 - Data should end with boundary
+    bodyData.append(string: "--\(boundary)--\r\n")
+
+    return bodyData
+}
+```
+
+Asignar httpBody con multipart
+```swift
+let image = UIImage(named: "tacocat")!
+let imageData = UIImagePNGRepresentation(image)! // transforms the PNG image into the binary
+
+let multipartData = multipartBody(data: imageData, boundary: boundary, fileName: "tacocat.png")
+
+// multipart requires content length
+req.setValue("\(multipartData.count)", forHTTPHeaderField: "Content-Length")
+req.httpBody = multipartData
+// END multipart construction
 ```
