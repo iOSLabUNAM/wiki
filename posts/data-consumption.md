@@ -36,10 +36,10 @@ La clase **URLSession** y las clases relacionadas proporcionan una API para desc
 ### Ejemplo
 
 ```swift
-  let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-    ...
-  }
-  task.resume()
+let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+  ...
+}
+task.resume()
 ```
 
 ## Tipos de URLSession
