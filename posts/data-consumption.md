@@ -111,7 +111,7 @@ request.httpBody = try? JSONEncoder().encode(<Compliant with Encodable Protocol>
 
 ### Multipart
 
-Extend Data to allow append data from strings
+Extend Data para agregar strings
 ```swift
 extension Data {
     mutating func append(string: String) {
@@ -122,13 +122,13 @@ extension Data {
 }
 ```
 
-Set boundary in Contet-Type header
+Establecer boundary(limite) en el header de Contet-Type
 ```swift
 let boundary = NSUUID().uuidString // the boundary act as a separator per field
 request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 ```
 
-Construct multipart image
+Construir el cuerpo multipart para una imagen
 ```swift
 class func multipartImage(data imageData: Data, boundary: String, fileName: String) -> Data {
     var bodyData = Data()
