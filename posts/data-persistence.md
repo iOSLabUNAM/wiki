@@ -4,20 +4,10 @@ category: ios
 ---
 
 
-## Persistencia de datos
-
-- [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
-- [FileManager](https://developer.apple.com/documentation/foundation/filemanager)
-  - Documents
-  - Cache
-  - [Temporal](https://developer.apple.com/documentation/foundation/1409211-nstemporarydirectory)
-- [NSCache](https://developer.apple.com/documentation/foundation/nscache)
-- [Keychain](https://developer.apple.com/documentation/security/keychain_services)
-- [CoreData](https://developer.apple.com/documentation/coredata)
-  - [Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/index.html#//apple_ref/doc/uid/TP40001075-CH2-SW1)
-  - [Persistent Store Features](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/PersistentStoreFeatures.html)
+# Persistencia de datos
 
 ## UserDefaults
+- [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
 
 Es la interface para configuracion default de ususario, donde se almacenan parejas de `key-value` persistentes a traves de la aplicacion.
 
@@ -36,7 +26,13 @@ UserDefaults.standard.set(true, forKey: "myKey")
 UserDefaults.standard.<dataType>(forKey: "myKey")
 ```
 
-## FileManager
+
+### Nota
+Para situaciones donde se requiere almacenar datos de manera segura se recomienda utilizar [Keychain](https://developer.apple.com/documentation/security/keychain_services) ya que al contrario de UserDefaults donde se tiene en un archivo de texto plano, keychain encripta la informacion.
+
+
+## FileManager(Archivos en Disco)
+- [FileManager](https://developer.apple.com/documentation/foundation/filemanager)
 
 Es un objeto que provee una interface de conveniencia a los contenidos del sistema de archivo.
 
@@ -49,12 +45,12 @@ Es un objeto que provee una interface de conveniencia a los contenidos del siste
 
 ### Como usar
 
-### Uso de directorios [SearchPathDirectory](https://developer.apple.com/documentation/foundation/filemanager.searchpathdirectory)
+#### Uso de directorios [SearchPathDirectory](https://developer.apple.com/documentation/foundation/filemanager.searchpathdirectory)
 
 - **.documentDirectory** User/Documents
 - **.cachesDirectory** Lib/Cache
 
-### Manejo de Directorios
+#### Manejo de Directorios
 
 ```swift
 var url = FileManager.default.urls(for: SearchPathDirectory, in: .userDomainMask).first!
@@ -62,7 +58,7 @@ let subfolder = "my-subfolder"
 url.appendPathComponent(subfolder)
 ```
 
-#### Crear Directorios
+##### Crear Directorios
 
 ```swift
 try fileManager.createDirectory(at: url, withIntermediateDirectories: false, attributes: nil)
@@ -81,30 +77,30 @@ let fileExits = FileManager.default.fileExists(atPath: folder.path, isDirectory:
 try fileManager.removeItem(at: url)
 ```
 
-### NSKeyedArchiver / NSKeyedUnarchiver
-
-#### Salvar archivo
+#### NSKeyedArchiver / NSKeyedUnarchiver
+*(Deprecated)*
+##### Salvar archivo 
 
 ```swift
 NSKeyedArchiver.archiveRootObject(<NSCoder>, toFile: url.path)
 ```
 
-#### Abrir archivo
+##### Abrir archivo
 
 ```swift
 NSKeyedUnarchiver.unarchiveObject(withFile: url.path)
 ```
 
-### Codable
+#### Codable
 
-#### Salvar codable
+##### Salvar codable
 
 ```swift
 let json = try JSONEncoder().encode(<Codable instance>)
 try json.write(to: url)
 ```
 
-#### Abrir codable
+##### Abrir codable
 
 ```swift
 if let data = try? Data(contentsOf: url) {
@@ -112,10 +108,17 @@ if let data = try? Data(contentsOf: url) {
 }
 ```
 
-### NSCache
+## NSCache
+- [NSCache](https://developer.apple.com/documentation/foundation/nscache)
+Una colección mutable que se utiliza para almacenar temporalmente en memoria datos transitorios. Se maneja de manera similar a un diccionario o lo que se conoce en NoSQL key-value store. Los datos que están sujetos a liberacion arbitraria por parte del sistema operativo cuando los recursos son bajos.
+
+### Cuando usar
+Normalmente, NSCache se utiliza para almacenar temporalmente objetos con datos transitorios que son costosos de crear. La reutilización de estos objetos puede proporcionar beneficios de rendimiento, ya que sus valores no tienen que volver a calcularse. Sin embargo, los objetos deven de no ser críticos para la aplicación ya se pueden descartar por el sistema operativo cuando requiera mayor uso de memoria y esta sea limitada.
+
+### Como usar
 
 ```swift
-let cache = NSCache<NSString, UIImage>()
+let cache = NSCache<NSString, Any>()
 ```
 
 #### Set Object
@@ -128,3 +131,10 @@ cache.setObject(image, forKey: key as NSString)
 ```swift
 cache.object(forKey: key as NSString)
 ```
+
+## CoreData
+- [CoreData](https://developer.apple.com/documentation/coredata)
+  - [Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/index.html#//apple_ref/doc/uid/TP40001075-CH2-SW1)
+  - [Persistent Store Features](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/PersistentStoreFeatures.html)
+  
+Contrario a la creencian **CoreData NO es un ORM**, ya que se cuenta con features mas extensos que permiten el manejo de datos a manera de control de versiones, por lo que muy pocos escenarios lo requieren, ademas que la implementacion y el mantenimiento es complejo.
