@@ -62,7 +62,7 @@ Una vez condigurado nuesto objecto, devemos agregarlo como Subview
 
 ```swift
   view.addSubview(imageView)
-``
+```
 
 Esto seria el similar al agregar un objecto en el interface builder sin establecer un constraint.
 Para crear un constraint por medio de codigo es necesario agregar el siguiente codigo

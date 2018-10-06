@@ -13,6 +13,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ## Desarrollo iOS
 
+- [Vistas programaticas](posts/programmatic-views)
 - [Consumo de datos](posts/data-consumption)
 - [Persistencia de datos](posts/data-persistence)
 
