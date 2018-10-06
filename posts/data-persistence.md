@@ -78,14 +78,14 @@ try fileManager.removeItem(at: url)
 ```
 
 #### NSKeyedArchiver / NSKeyedUnarchiver
-*(Deprecated)*
-##### Salvar archivo 
+
+##### Salvar archivo *(Deprecated)*
 
 ```swift
 NSKeyedArchiver.archiveRootObject(<NSCoder>, toFile: url.path)
 ```
 
-##### Abrir archivo
+##### Abrir archivo *(Deprecated)*
 
 ```swift
 NSKeyedUnarchiver.unarchiveObject(withFile: url.path)
@@ -110,6 +110,7 @@ if let data = try? Data(contentsOf: url) {
 
 ## NSCache
 - [NSCache](https://developer.apple.com/documentation/foundation/nscache)
+
 Una colección mutable que se utiliza para almacenar temporalmente en memoria datos transitorios. Se maneja de manera similar a un diccionario o lo que se conoce en NoSQL key-value store. Los datos que están sujetos a liberacion arbitraria por parte del sistema operativo cuando los recursos son bajos.
 
 ### Cuando usar
@@ -136,5 +137,5 @@ cache.object(forKey: key as NSString)
 - [CoreData](https://developer.apple.com/documentation/coredata)
   - [Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/index.html#//apple_ref/doc/uid/TP40001075-CH2-SW1)
   - [Persistent Store Features](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/PersistentStoreFeatures.html)
-  
+
 Contrario a la creencian **CoreData NO es un ORM**, ya que se cuenta con features mas extensos que permiten el manejo de datos a manera de control de versiones, por lo que muy pocos escenarios lo requieren, ademas que la implementacion y el mantenimiento es complejo.
