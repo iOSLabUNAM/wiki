@@ -5,3 +5,5 @@ category: design patterns
 # Modelo Vista Vista Modelo (MVVM)
 
 ![mvvm](https://user-images.githubusercontent.com/214138/31826768-90427e3a-b57b-11e7-8bca-ad793349dcf7.png)
+
+MVVM facilita una separación del desarrollo de la interfaz gráfica de usuario, ya sea a través de un lenguaje de marcado o código UI, a partir del desarrollo de la lógica de negocios o la lógica de backend(el modelo de datos). El modelo de vista de MVVM es un convertidor de valores, lo que significa que el modelo de vista es responsable de exponer (convertir) los objetos de datos del modelo de tal manera que los objetos se administran y presentan fácilmente. En este sentido, el modelo de vista es más un modelo que una vista y maneja la mayoría, si no toda la lógica de visualización de la vista.  El modelo de vista puede implementar un patrón de mediador, organizando el acceso a la lógica de backend en torno al conjunto de casos de uso admitidos por la vista.
