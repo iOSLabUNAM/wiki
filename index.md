@@ -17,6 +17,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Consumo de datos](posts/data-consumption)
 - [Persistencia de datos](posts/data-persistence)
 - [CommonCrypto](posts/common-crypto)
+- [NotificationCenter](posts/notification-center)
 
 ## Patrones de diseño
 - [MVC](posts/mvc)
