@@ -17,8 +17,8 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Vistas programaticas](posts/programmatic-views)
 - [Consumo de datos](posts/data-consumption)
 - [Persistencia de datos](posts/data-persistence)
-- [CommonCrypto](posts/common-crypto)
-- [NotificationCenter](posts/notification-center)
+- [Common Crypto](posts/common-crypto)
+- [Notification Center](posts/notification-center)
 
 ## Patrones de diseño
 - [MVC](posts/mvc)
