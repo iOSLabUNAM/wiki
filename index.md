@@ -6,6 +6,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ## Trabajo colaborativo
 
+- [Principios Agiles](posts/agile-principles)
 - [Roles de equipo](posts/team-roles)
 - [Metodologías Ágiles](posts/agile)
 - [Git workflows](posts/gitflows)
@@ -28,4 +29,3 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [3rd Party libraries](posts/3rd-party-libraries)
 - [Git Cheatsheet](posts/git-cheatsheet)
 - [Unit Test Cheatsheet](posts/unit-tests-cheatsheet)
-- [Mejores Prácticas](posts/best-practices)
