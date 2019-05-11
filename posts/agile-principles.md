@@ -3,7 +3,7 @@ title: Mejores Practicas
 category: annex
 ---
 
-# Mejóres Prácticas
+# Principios Agiles
 
 ## Don't Repeat Yourself (DRY)
 
@@ -12,3 +12,8 @@ Este principio nos permite crear abstracciones a nuestro codigo, evitando la rep
 ## Keep It Simple Stupid (KISS)
 
 Over engineering es muy comun entre ingenieros que al buscar un producto robusto tienden a complicarlo mas de lo necesario. Para luchar con esto se busca que tanto el codigo como la experiencia de usuario sea lo mas simple posible. Mantener un balance de simplicidad con robustes es dificil, pero no imposible.
+
+
+## You Aren't Gonna Need It (YAGNI)
+
+Es el mantra basico de XP, que nos habla hacerca del diseño simple. Basicamente solo se construlle lo necesario para el funcionamiento necesario, sin la necesidad de plantear *edge cases* inecesarios durante la fase de diseño.
