@@ -4,12 +4,12 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ---
 
-## Trabajo colaborativo
+## Agile
 
 - [Principios Agiles](posts/agile-principles)
-- [Roles de equipo](posts/team-roles)
 - [Metodologías Ágiles](posts/agile)
 - [Git workflows](posts/gitflows)
+- [Roles de equipo](posts/team-roles)
 - [Desarrollo orientado a pruebas](posts/tdd)
 
 ## Desarrollo iOS
@@ -19,6 +19,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Persistencia de datos](posts/data-persistence)
 - [Common Crypto](posts/common-crypto)
 - [Notification Center](posts/notification-center)
+- [Alertas](posts/alerts)
 
 ## Patrones de diseño
 - [MVC](posts/mvc)
