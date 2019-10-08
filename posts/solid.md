@@ -19,7 +19,8 @@ class PlaceOrder {
   }
 
   func run() {
-    // 1. Lógica relacionada a verification de disponibilidad en inventario
+    // 1. Lógica relacionada a verification
+    //    de disponibilidad en inventario
     // 2. Lógica relacionada a procesamiento de pago
     // 3. Lógica relacionada a procesamiento de envio
   }
@@ -62,7 +63,7 @@ class Logger {
       case "console":
         print(message)
       case "file":
-        IOFile.write("logs.txt", message: message)
+        DiskStore().write("logs.txt", message: message)
     }
   }
 }
@@ -93,7 +94,7 @@ class ConsoleLogger: Logger {
 
 class FileLogger: Logger {
   func log(_ message: String) {
-      IOFile.write("logs.txt", message: message)
+      DiskStore().write("logs.txt", message: message)
   }
 }
 ```
@@ -148,27 +149,27 @@ Establece que ningún cliente debe ser obligado a depender de los métodos que n
 #### Malo
 
 ```swift
-class Car {
-  func open() {}
-
-  func startEngine() {}
-
-  func changeEngine() {}
+protocol Car {
+  func open()
+  func startEngine()
+  func changeEngine()
 }
 
-// ISP violation: La instancia Driver no hace uso de #changeEngine
+// ISP violation: La instancia Driver
+// no hace uso de #changeEngine
 class Drive {
-  func take_a_ride(car: Car) {
-    car.open
-    car.startEngine
+  func takeARide(car: Car) {
+    car.open()
+    car.startEngine()
   }
 }
 
-// ISP violation: La instancia Mechanic no hace uso de #startEngine
+// ISP violation: La instancia Mechanic
+// no hace uso de #startEngine
 class Mechanic {
   func repair(car: Car) {
-    car.open
-    car.changeEngine
+    car.open()
+    car.changeEngine()
   }
 }
 ```
@@ -214,7 +215,8 @@ class EventTracker {
     self.logger = logger
   }
 
-  // Por medio de injección de dependencias en el principio closed/open
+  // Por medio de injección de dependencias en el
+  // Open Closed Principle
   func log(message: String) {
     self.logger.log(message)
   }
