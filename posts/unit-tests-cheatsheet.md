@@ -37,7 +37,7 @@ Se ejecuta despues de cada prueba
 Los metodos de prueba comienzan con la palabra `test`
 
 ## Assertions
-Una aserción un metodo de que evalua el cumplimiendo de un resultado dado un valor esperado
+Una aserción un metodo de que evalua el cumplimiento de un resultado dado un valor esperado
 
 - XCTAssert
 - XCTAssertTrue

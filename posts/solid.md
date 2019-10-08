@@ -6,11 +6,46 @@ category: annex
 
 ## Single Responsibility
 
-Establece que cada módulo o clase debe tener responsabilidad sobre una parte única de la funcionalidad proporcionada por el software, y que la responsabilidad debe estar completamente encapsulada por la clase. Todos sus servicios deben estar estrechamente alineados con esa responsabilidad.
+Establece que cada módulo debe tener una responsabilidad única, lo cual significa que tiene que ser altamente cohesivo e implementar una logica fuertemente relacionada.
+
+### Ejemplo
+
+#### Malo
+```swift
+class PlaceOrder {
+  let product: Product
+  init(product: Product) {
+    self.product = product
+  }
+
+  func run() {
+    // 1. Logic related to verification of stock availability
+    // 2. Logic related to payment process
+    // 3. Logic related to shipment process
+  }
+}
+ ```
+
+#### Bueno
+
+```swift
+class PlaceOrder {
+  let product: Product
+  init(product: Product) {
+    self.product = product
+  }
+
+  func run() {
+    StockAvailability(product: self.product).run()
+    ProductPayment(product: self.product).run()
+    ProductShipment(product: self.product).run()
+  }
+}
+```
 
 ## Open Closed Principle
 
-Establece que "las entidades de software (clases, módulos, funciones, etc.) deben estar abiertas para extensión, pero cerradas para modificación"; es decir, que una entidad de este tipo puede permitir que su comportamiento se amplíe sin modificar su comportamiento.
+Establece que "los modulos de software deben estar abiertos para extensión, pero cerradas para modificación"; es decir, que una entidad de este tipo puede permitir que su comportamiento se amplíe sin modificar su comportamiento.
 
 ## Liskov Subtitution Principle
 
