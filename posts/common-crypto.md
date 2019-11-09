@@ -93,16 +93,16 @@ func sha1(data: Data) -> [UInt8] {
 #### Objective-C
 ```objective-c
 -(NSString *) sha256String: (NSString *)input{
-    const char *data = [input cStringUsingEncoding:NSASCIIStringEncoding];
-    NSData *keyData = [NSData dataWithBytes:data length:strlen(data)];
-    uint8_t digest[CC_SHA256_DIGEST_LENGTH] = {0};
-    CC_SHA256(keyData.bytes, (CC_LONG)(keyData.length), digest);
-    NSData *out = [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
-    NSString *hash = [out description];
-    hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
-    hash = [hash stringByReplacingOccurrencesOfString:@"<" withString:@""];
-    hash = [hash stringByReplacingOccurrencesOfString:@">" withString:@""];
-    return hash;
+    const char* str = [input UTF8String];
+    unsigned char result[CC_SHA256_DIGEST_LENGTH];
+    CC_SHA256(str, strlen(str), result);
+
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH*2];
+    for(int i = 0; i<CC_SHA256_DIGEST_LENGTH; i++)
+    {
+        [ret appendFormat:@"%02x",result[i]];
+    }
+    return ret;
 }
 ```
 
