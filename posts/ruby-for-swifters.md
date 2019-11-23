@@ -17,24 +17,94 @@ lo cual quiere decir que ruby interpreta linea por linea y ejecuta al vuelo. Por
 
 ## Variables
 
+**Swift**
 ```swift
   let inmutableVariable: String = "Hello World!"
   var mutableVariable = "Hello"
   mutableVariable += " World!"
 ```
 
-A diferencia de swift en ruby no hay "constantes", todo puede cambiar.
-
+**Ruby**
 ```ruby
   variable = "Hello"
   variable += " World!"
 ```
 
-## Primitivas
-
+A diferencia de swift en ruby no hay "constantes", todo puede cambiar.
 
 ## Estructuras de Control
 
+### If
+
+**Swift**
+```swift
+  if value {
+    print("SI")
+  } else {
+    print("NO")
+  }
+```
+
+**Ruby**
+```ruby
+  if value
+    puts("SI")
+  else
+    puts("NO")
+  end
+```
+
+Como notaras la sintaxis del if es similar sin embargo en ruby se utilizan bloques de codigo con `begin`, `do`, `end` en ves de utilizar `{}`
+
+### Guard
+
+**Swift**
+```swift
+  func foo(input: String?) -> String {
+    guard let str = input else { return "NO" }
+    return str
+  }
+```
+
+**Ruby**
+```ruby
+  def foo(input:)
+    return "NO" unless input
+    input
+  end
+```
+
+Ruby de manera explicita no cuenta con un `guard` sin embargo el patron se puede implementar con `unless` que es un `if !value`
+
+### Switch
+
+**Swift**
+```swift
+  switch value {
+  case 1:
+      print("one")
+  case 2:
+      print("two")
+  default:
+      print("other")
+  }
+```
+
+**Ruby**
+```ruby
+  case value
+  when 1
+    puts("one")
+  when 2
+    puts("two")
+  else
+    puts("other")
+  end
+```
+
+En terminos de sintaxis es muy similar sin embargo las palabras reservadas cambian, en ruby usamos `case` en vez de `switch` y en vez de case usamos `when` esto porque ruby es un lenguaje que busca ser similar a una sintaxis en ingles.
+
+## Ciclos
 
 ## Estructuras de Datos
 
