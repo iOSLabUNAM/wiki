@@ -3,6 +3,8 @@ title: Ruby para Swifteros
 category: backend
 ---
 
+# Ruby para Swifteros
+
 Al igual que swift ruby es un lenguaje orientado objetos robusto y con un amplio ecosistema en el desarrollo web.
 En esta guia encontraras los paradigmas y diferencias entre swift y ruby.
 
