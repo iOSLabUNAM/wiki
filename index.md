@@ -28,7 +28,10 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ## Anexo
 - [3rd Party libraries](posts/3rd-party-libraries)
-- [Git Cheatsheet](posts/git-cheatsheet)
-- [Markdown Cheat Sheet](posts/markdown-cheatsheet)
-- [Unit Test Cheatsheet](posts/unit-tests-cheatsheet)
 - [Ruby para Swifteros](posts/ruby-for-swifters)
+
+## Cheatsheets
+
+- [Git](posts/git-cheatsheet)
+- [Markdown](posts/markdown-cheatsheet)
+- [Unit Test](posts/unit-tests-cheatsheet)
