@@ -38,10 +38,13 @@ Como puedes observar tenemos la primera estructura cuyo nombre es **ContentView*
 4. Como verás aunque ya codificamos un poco aun nuestra vista no nos muestra nada, para poder ver en el live view del playground nuestro codigo  es necesario añadir una linea más que es la razon por la cual importamos la libreria de playground, esta linea es la siguiente:
 `PlaygroundPage.current.setLiveView(ContentView())`.
 5. Ahora que ya completamos los pasos anteriores solamente ejecuta el codigo del playground y el live preview te mostrara una pantalla con el fondo blanco pero con nuestro *Hello World* en el centro de ella.
+
 &nbsp;
 
 ### Modificadores
+
 &nbsp;
+
 **SwiftUI** nos ofrece "modificadores" para poder customizar nuestra vista como mejor se acomode acorde a las necesidades del proyecto. Algunos de los modificadores basicos son:
 ```
 font()
@@ -109,10 +112,68 @@ Hay tres tipos de **Stack** basicos :
 
 &nbsp;
 
-VStack| HStack | Zstack
+VStack| HStack | ZStack
 ---|---|---
 Agrega elementos de forma vertical uno arriba de otro en el orden en que sean declarados. | Agrega elementos de forma horizontal uno al lado de otro en el orden en que sean declarados. | Este es el mas complejo de entender de los 3 pero la definicion sería que tenemos un stack que agrega elementos de forma uno sobre de otro en el orden en que sean declarados.
 
 &nbsp;
+
+Ahora que ya  sabemos los elementos de los Stacks debemos saber que los stack tambien tienen "modificadores", un ejemplo de ellos es el siguiente:
+
+```swift
+VStack(alignment: .leading, spacing: 30){
+    Text("Hola Mundo como estas el dia de hoy")
+    Text("Hola Mundo2")
+
+}
+```
+
+&nbsp;
+
+Con el codigo anterior verás como los elementos del Stack se alinean a la izquierda 
+y puedes probar a alinear tus elementos hacia la derecha cambiando la propiedad a `.trailing` dentro del aligment del Stack.
+
+&nbsp;
+
+#### Enlazar contenedores
+
+Con lo visto hasta ahora probablemente piensas que **SwiftUI** es muy simple, pero ahota agregaremos otro grado de complejidad, Ya vimos que con **VStack** podemos añadir elementos verticales uno arriba de otro, pero ¿Que pasa si quiero un elemento horizontal dentro del VStack sin perder los elementos verticales que ya tengo?
+
+Buena pregunta, como antes lo dije, no podemos agregar dos Stacks dentro del Body por lo que debe de haber otra manera, y estas en lo correcto. Para agregar elementos de diferente forma dentro de un Stack lo que hacemos es anidar Stacks, de esta manera tendremos un codigo como el Siguiente:
+
+
+```swift
+VStack(alignment: .leading, spacing: 30){
+    Text("Hola Mundo como estas el dia de hoy")
+    Text("Hola Mundo2")
+
+    HStack(alignment: .center, spacing:10){
+        Text("Hola Mundo")
+        Text("Hola Mundo2")
+    }
+}
+```
+&nbsp;
+
+Con este cambio aplicado a nuestro proyecto nos daremos cuenta que ahora en el *canvas* tenemos nuestros primeros dos `Text()` de forma vertical y debajo de ellos los `Text()` que tenemos dentro del **HStack** alineados de forma horizontal.
+
+&nbsp;
+
+### Agregar Elementos
+
+&nbsp;
+
+Ya hemos aprendido la mayoria de la teoria básica que nos trae este framework como minimo para poder usarlo. Ahora solo enlistare algunas funciones que agregaran elementos a nuestros **Stack**.
+
+&nbsp;
+
+- `Spacer()` - expande o da espacio entre un elemento y otro en el orden de su **Stack**
+- `HStack(){ }.padding(.all)` - Genera espacio entre los elementos con cierto margen de separación apegado al espacio de neustra vista
+- `` -
+- `` -
+- `` -
+- `` -
+- `` -
+
 
 > SwiftUI será el futuro de las tecnologias moviles 
