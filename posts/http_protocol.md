@@ -36,19 +36,40 @@ HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo e
 
 - - -
 
-## *Mensajes HTTP*
-
-### Peticiones
-
-
+## Componentes de HTTP
 
 #### Métodos
 
-#### Path
-
-#### Versión del protocolo
+#### Path (URL)
 
 #### Headers
 
-#### 
+#### Códigos y mensajes de respuesta
+
+- - -
+
+## *Mensajes HTTP*
+
+#### Peticiones
+
+![HTTP_REQUEST](https://media.prod.mdn.mozit.cloud/attachments/2016/08/09/13687/5d4c4719f4099d5342a5093bdf4a8843/HTTP_Request.png)
+
+Una petición de HTTP, está formado  por los siguientes campos:
+
+* Un método HTTP. El objetivo de un cliente, suele ser una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando POST, aunque en otras ocasiones puede hacer otros tipos de peticiones. 
+* La dirección del recurso pedido (Path).
+* Cabeceras HTTP opcionales, que pueden aportar información adicional a los servidores.
+* Opcional, un cuerpo de mensaje en algún método, como puede ser POST, en el cual envía la información para el servidor.
+
+#### Respuestas
+
+![HTTP_RESPONSE](https://media.prod.mdn.mozit.cloud/attachments/2016/08/09/13691/58390536967466a1a59ba98d06f43433/HTTP_Response.png)
+
+Las respuestas están formadas por los siguentes campos:
+
+* La versión del protocolo HTTP que están usando.
+* Un código de estado, indicando si la petición ha sido exitosa, o no, y debido a que.
+* Un mensaje de estado, una breve descripción del código de estado. 
+* Cabeceras HTTP, como las de las peticiones.
+* Opcionalmente, el recurso que se ha pedido.
 
