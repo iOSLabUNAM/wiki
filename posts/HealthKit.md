@@ -33,8 +33,8 @@ Al trabajar con **Health app** es importante tomar en cuenta los siguientes punt
 
 * Se deben crear politicas de privacidad para cualquier app que use el framework de HealthKit. Se puede encontrar documentacion para crear politicas de privacidad en los siguientes sitios: 
 
-    - [Personal Health Record model (for non-HIPAA apps)] (http://www.healthit.gov/policy-researchers-implementers/personal-health-record-phr-model-privacy-notice)
-    - [HIPAA model (for HIPAA covered apps)] (http://www.hhs.gov/ocr/privacy/hipaa/modelnotices.html)
+    - [Personal Health Record model (for non-HIPAA apps)](http://www.healthit.gov/policy-researchers-implementers/personal-health-record-phr-model-privacy-notice)
+    - [HIPAA model (for HIPAA covered apps)](http://www.hhs.gov/ocr/privacy/hipaa/modelnotices.html)
 
 ## [HealthKit Data](https://developer.apple.com/documentation/healthkit/data_types). 
 
@@ -46,7 +46,7 @@ Los tipos de datos que HealthKit puede ofrecer en su almacèn (store) son:
 - Source data. Cada sample almacena informacion sobre su origen, por ejemplo, el objeto HKSourceRevision contiene informacion sobre la app o el dispositivo que almacena el tipo de _sample_, y el objeto HKDevice contiene informacion sobre el hardware del dispositivo que genero los datos.  
 - Deleted objects. Una instancia de HKDeletedObject es usada para almacenar temporalmente el UUID de un item que ha sido eliminado del almacen (store) de HealthKit. 
 
-## [_Objects Properties_ y _Samples_](https://developer.apple.com/documentation/healthkit/about_the_healthkit_framework)
+## [_Object properties_ y _Samples_](https://developer.apple.com/documentation/healthkit/about_the_healthkit_framework)
 
 La clase *HKObject* es la superclase de todos los tipos de _samples_ que administra HealthKit. Todas sus subclases son inmutables y cada objeto de la clase tiene las siguientes propiedades: 
 * UUID. Un identificador unico para cada tipo de _log_ o entrada. 
@@ -56,7 +56,7 @@ La clase *HKObject* es la superclase de todos los tipos de _samples_ que adminis
 
 To create a type object, call the appropriate HKObjectType class method, and pass in the desired type identifier.
 
-```
+```swift
 let bloodType = HKObjectType.characteristicType(forIdentifier: .bloodType)
 
 let caloriesConsumed = HKObjectType.quantityType(forIdentifier: .dietaryEnergyConsumed)
