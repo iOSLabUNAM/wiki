@@ -1,13 +1,7 @@
-<div style="text-align: center">
-
 # Protocolo HTTP 
-
-</div>
-
 
 ## *Definición*
 
-<div style="text-align: justify">
 HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo en el que se basa la Web. Fue inventado por Tim Berners-Lee entre los años 1989-1991. HTTP ha visto muchos cambios, manteniendo la mayor parte de su simplicidad y desarrollando su flexibilidad. Es la base de cualquier intercambio de datos en la Web, y un protocolo de estructura cliente-servidor, esto quiere decir que una petición de datos es iniciada por el elemento que recibirá los datos (el cliente), normalmente un navegador Web. 
 
 - - - 
@@ -41,26 +35,25 @@ HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo e
 
 - - -
 
-## Componentes de una URL
+## *Componentes de una URL*
 
 Una URL para HTTP  normalmente consta de tres o cuatro componentes:
 
-* ___Scheme___ 
+### Scheme 
 
-    El esquema identifica el protocolo que se utilizará para acceder al recurso en Internet. Puede ser HTTP (sin SSL) o HTTPS (con SSL).
-<br>
-* ___Host___
+El esquema identifica el protocolo que se utilizará para acceder al recurso en Internet. Puede ser HTTP (sin SSL) o HTTPS (con SSL).
 
-    
-    Identifica el host que contiene el recurso. Por ejemplo:www.ejemplo.com. Un servidor proporciona servicios en nombre del host, pero los hosts y servidores no tienen una asignación uno a uno. Los nombres de host también pueden ir seguidos de un número de puerto. Los números de puerto conocidos para un servicio normalmente se omiten de la URL. La mayoría de los servidores utilizan los números de puerto conocidos para HTTP y HTTPS, por lo que la mayoría de las URL de HTTP omiten el número de puerto.
-<br>
-* ___Path___
+### Host
 
-    La ruta identifica el recurso específico en el host al que el cliente web quiere acceder. Por ejemplo: /software/htp/cics/index.html.
-<br>
-* ___Query String___
+Identifica el host que contiene el recurso. Por ejemplo:www.ejemplo.com. Un servidor proporciona servicios en nombre del host, pero los hosts y servidores no tienen una asignación uno a uno. Los nombres de host también pueden ir seguidos de un número de puerto. Los números de puerto conocidos para un servicio normalmente se omiten de la URL. La mayoría de los servidores utilizan los números de puerto conocidos para HTTP y HTTPS, por lo que la mayoría de las URL de HTTP omiten el número de puerto.
 
-    Si se usa una cadena de consulta, sigue el componente de ruta y proporciona una cadena de información que el recurso puede usar para algún propósito (por ejemplo, como parámetros para una búsqueda o como datos para procesar). La cadena de consulta suele ser una cadena de pares de nombre y valor; por ejemplo: term=bluebird. Los pares de nombre y valor están separados entre sí por un ampersand (&); por ejemplo: term=bluebird&source=browser-search.
+### Path
+
+La ruta identifica el recurso específico en el host al que el cliente web quiere acceder. Por ejemplo: /software/htp/cics/index.html.
+
+### Query String
+
+Si se usa una cadena de consulta, sigue el componente de ruta y proporciona una cadena de información que el recurso puede usar para algún propósito (por ejemplo, como parámetros para una búsqueda o como datos para procesar). La cadena de consulta suele ser una cadena de pares de nombre y valor; por ejemplo: term=bluebird. Los pares de nombre y valor están separados entre sí por un ampersand (&); por ejemplo: term=bluebird&source=browser-search.
 
 El esquema y los componentes de host de una URL no se definen como mayúsculas y minúsculas, pero la ruta y la cadena de consulta son sensibles a mayúsculas y minúsculas. Por lo general, la URL completa se especifica en minúsculas.
 
@@ -75,14 +68,14 @@ Los componentes de la URL se combinan y delimitan de la siguiente manera:
 
 - - -
 
-## Componentes de HTTP
+## *Componentes de HTTP*
 
-#### Métodos
+* #### Métodos
 
 HTTP define 8 métodos (algunas veces referido como "verbos") que indica la acción que desea que se efectúe sobre el recurso identificado. Lo que este recurso representa, si los datos pre-existentes o datos que se generan de forma dinámica, depende de la aplicación del servidor. A menudo, el recurso corresponde a un archivo o la salida de un ejecutable que se encuentra en el servidor.
 
 
-* ___GET___
+#### GET
 
 Pide una representación del recurso especificado. Por seguridad no debería ser usado por aplicaciones que causen efectos ya que transmite información a través de la URI agregando parámetros a la URL.
 
@@ -96,15 +89,15 @@ _Ejemplo con parámetros:_
 
     GET /index.php?page=main&lang=es
 
-* ___POST___
+#### POST
 
 Aunque se puedan enviar datos a través del método GET, en muchos casos se utiliza POST por las limitaciones de GET. El contenido va en el body del request, no aparece nada en la URL, aunque se envía en el mismo formato que con el método GET. Si se quiere enviar texto largo o cualquier tipo de archivo este es el método apropiado.
 
-* ___HEAD___
+#### HEAD
 
 Pide una respuesta idéntica a la que correspondería a una petición GET, pero sin el cuerpo de la respuesta. Esto es útil para la recuperación de meta-información escrita en los encabezados de respuesta, sin tener que transportar todo el contenido.
 
-* ___PUT___
+#### PUT
 
 Sube, carga o realiza un upload de un recurso especificado (archivo), es el camino más eficiente para subir archivos a un servidor, esto es porque en POST utiliza un mensaje multipart y el mensaje es decodificado por el servidor. En contraste, el método PUT te permite escribir un archivo en una conexión socket establecida con el servidor.
 La desventaja del método PUT es que los servidores de hosting compartido no lo tienen habilitado.
@@ -113,23 +106,23 @@ _Ejemplo:
 
     PUT /path/filename.html HTTP/1.1
 
-* ___DELETE___
+#### DELETE
 
 Este método le solicita al servidor web que se borre un recurso en específico.
 
-* ___TRACE___
+#### TRACE
 
 Este método Permite monitorear los mensajes que hay entre el cliente y el servidor web. Principalmente se usa con propósitos de diagnósticos de fallas o para revisar si existen servidores intermediarios en la conexión.
 
-* ___OPTIONS___
+#### OPTIONS
 
 Devuelve los métodos HTTP que el servidor soporta para un URL específico.Esto puede ser utilizado para comprobar la funcionalidad de un servidor web mediante petición en lugar de un recurso específico.
 
-* ___CONNECT___
+#### CONNECT
 
 Este método se utiliza para solicitar una conexión de tipo túnel TCP/IP. Principalmente se utiliza cuando se necesita utilizar un proxy para una conexión segura cifrada HTTPS o para comunicaciones vía SSL.
 
-#### Headers
+* #### Headers
 
 Las cabeceras (headers) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta. Una cabecera de petición esta compuesta por su nombre (no sensible a las mayúsculas) seguido de dos puntos ':', y a continuación su valor (sin saltos de línea). Los espacios en blanco a la izquierda del valor son ignorados
 Se pueden agregar cabeceras propias personalizadas usando el prefijo 'X-', pero esta convención se encuentra desfasada desde Julio de 2012, debido a los inconvenientes causados cuando se estandarizaron campos no estándar en el RFC 6648; otras están listadas en un registro IANA, cuyo contenido original fue definido en el RFC 4229, IANA tambien mantiene un registro de propuestas para nuevas cabeceras HTTP.
@@ -167,7 +160,7 @@ ___Cabecera de entidad:___ Cabeceras que contienen más información sobre el cu
 * ___Server:___ cadena que identifica el tipo y versión del servidor HTTP. Por ejemplo, Server: NCSA 1.4.
 * ___WWW-Autenticate:___ cuando se accede a un recurso protegido o de acceso restringido, el servidor devuelve un código de estado 401, y utiliza este campo para informar de los modelos de autentificación válidos para acceder a este recurso.
 
-#### Códigos y mensajes de respuesta
+* #### Códigos y mensajes de respuesta
 
 La lista de los códigos de estado de HTTP se divide en 5 categorías:
 
