@@ -28,9 +28,7 @@ Al trabajar con **Health app** es importante tomar en cuenta los siguientes punt
 * El rol de la app debe dejar en claro que cualquier _marketing_ y/o diseño de interfaz de usuario es sobre servicios fitness y/o de salud. No se debe usar datos del HealthKit para dar servicio a cualquier tipo de publicidad, o vender datos a revendedores de informacion o plataformas de publicidad.  
 * Unicamente se deben compartir datos del HealthKit a terceros si estos tambien proveen servicios fitness o de salud al usuario que, al mismo tiempo,  debe dar permiso para que se compartan. 
 * Se debe explicar claramente al usuario como se usaran sus datos. 
-
-* Specify Required Clinical Record Types. If your app requires access to specific clinical record data to function properly, specify the required clinical record types in your app’s Info.plist file using the NSHealthRequiredReadAuthorizationTypeIdentifiers key. This key defines the data types that your app must have permission to read. Set the value to an array of strings containing the type identifiers for your required types. you must specify three or more required clinical record types.
-
+* Si la app en desarrollo requiere acceso a archivos con datos clinicos especificos para funcionar, hay que especificar los tipos de archivos clinicos requeridos en el Info.plist de la app usando la llave siguiente: lNSHealthRequiredReadAuthorizationTypeIdentifiers. 
 * Se deben crear politicas de privacidad para cualquier app que use el framework de HealthKit. Se puede encontrar documentacion para crear politicas de privacidad en los siguientes sitios: 
 
     - [Personal Health Record model (for non-HIPAA apps)](http://www.healthit.gov/policy-researchers-implementers/personal-health-record-phr-model-privacy-notice)
@@ -54,7 +52,7 @@ La clase *HKObject* es la superclase de todos los tipos de _samples_ que adminis
 * Source Revision. La fuente del _sample_.  Dicha fuente puede ser un dispositivo que guarde directamente datos hacia HealthKit o una app que use este framework. 
 * Device. El hardware del dispositivo que genero los datos almacenados en el _sample_. 
 
-To create a type object, call the appropriate HKObjectType class method, and pass in the desired type identifier.
+Para crear un tipo de objeto, se debe llamar al metodo de la clase HKObjectType, y pasar el tipo de identificador deseado. 
 
 ```swift
 let bloodType = HKObjectType.characteristicType(forIdentifier: .bloodType)
@@ -145,6 +143,6 @@ If the user grants permission to share a data type, you can create new samples o
 ###  [Usar _Queries_ para solicitar _sample_ datos de HealthKit](https://developer.apple.com/documentation/healthkit/queries) 
 
 
-##Para consultar mucha mas información: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
+### Para consultar mucha mas información: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
 
 
