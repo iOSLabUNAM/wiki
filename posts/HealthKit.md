@@ -142,16 +142,44 @@ Si el usuario concede permisos para compartir datos de algun tipo en especifico,
 
 ## [Guardar datos en HealthKit](https://developer.apple.com/documentation/healthkit/saving_data_to_healthkit). 
 
+Your app can create new samples and add them to the HealthKit store. Although all sample types follow a similar procedure, each type has its own variations:
+Look up the type identifier for your data. For example, to record the user’s weight, you use the bodyMass type identifier. For the complete list of type identifiers, see Data Types.
+Use the convenience methods on the HKObjectType class to create the correct object type for your data. For example, to save the user’s weight, you’d create an HKQuantityType object using the quantityType(forIdentifier:) method. For a list of convenience methods, see HKObjectType.
+Instantiate an object of the matching HKSample subclass using the object type.
+Save the object to the HealthKit store using the save(_:withCompletion:) method.
+
+Balance Performance and Details
+When saving data to the HealthKit store, you often need to choose between using a single sample to represent the data or splitting the data across multiple, smaller samples. A single, long sample is better from a performance perspective; however, multiple smaller samples gives the user a more detailed look into how their data changes over time. Ideally, you want to find a sample size that is granular enough to provide the user with useful historical data.
+When recording a workout, you can use high frequency data (a minute or less per sample) to provide intensity charts and otherwise analyze the user’s performance over the workout. For less intensive activity, like daily step counts, samples of an hour or less often work best. This lets you produce meaningful daily and hourly graphs.
+Apps should avoid saving samples that are 24 hours long or longer.
 
 ### [Crear y Compartir HealthKit _Samples_](https://developer.apple.com/documentation/healthkit/samples) 
 
+Most health and fitness data is saved to the HealthKit store using an HKSample subclass. All sample subclasses record information at a specified time. If the sample’s startDate and endDate properties are the same, the sample represents a point in time. If the endDate is after the startDate, the sample represents a time interval.
+HealthKit uses different HKSample subclasses to store different types of data:
+HKQuantitySample objects store quantities—a numerical value and units. Most HealthKit data types use quantity samples. For example, height, heart rate, and dietary energy consumed all use quantity samples.
+HKCategorySample objects store a single option selected from a short list. For example, sleep data is recorded using category samples (the user can be in bed, asleep, or awake).
+HKCorrelation samples combine two or more samples into a single value. For example, food and bloodpressure are represented using correlation samples. A food sample contains any number of nutrition samples, while a bloodpressure sample contains both a systolic and a diastolic sample.
+HealthKit also uses other sample subclasses to represent more-specialized data types. For example, HKCDADocumentSample, HKWorkoutRoute, and HKWorkout.
+
+Creating and Saving Data in HealthKit [Tutorial.](https://www.devfright.com/creating-and-saving-data-in-healthkit/)
 
 ## [Leer Datos de HealthKit.](https://developer.apple.com/documentation/healthkit/reading_data_from_healthkit#overview)
 
+There are three main ways to access data from the HealthKit Store:
+Direct method calls. The HealthKit store provides methods to directly access characteristic data. These methods can be used only to access characteristic data. For more information, see HKHealthStore.
+Queries. Queries return the current snapshot of the requested data from the HealthKit store.
+Long-running queries. These queries continue to run in the background and update your app whenever changes are made to the HealthKit store.
 
 ###  [Usar _Queries_ para solicitar _sample_ datos de HealthKit](https://developer.apple.com/documentation/healthkit/queries) 
 
+Use queries to read sample data from the HealthKit store. Queries can also be used to list all the sources for a particular type of data, or to do statistical calculations. For example, statistical queries can calculate the minimum and maximum heartrate for a given week, or the total step count for a given day.
+You run a query by calling the HealthKit store’s execute(_:) method. A snapshot of the current results are asynchronously returned to the query’s results handler. Long-running queries continue to monitor the HealthKit store, and return any relevant changes to the query’s update handler. To return sorted or filtered results, give the query a sort descriptor or predicate.
 
-## Para consultar mucha mas información: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
+-------> QUERIES ----------> https://developer.apple.com/documentation/healthkit/reading_data_from_healthkit
+
+#### Reading Characteristic Data from HealthKit [Tutorial.](https://www.devfright.com/reading-characteristic-data-from-healthkit/) 
+
+## Para consultar información extendida: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
 
 
