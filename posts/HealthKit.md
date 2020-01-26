@@ -52,7 +52,7 @@ La clase *HKObject* es la superclase de todos los tipos de _samples_ que adminis
 * Source Revision. La fuente del _sample_.  Dicha fuente puede ser un dispositivo que guarde directamente datos hacia HealthKit o una app que use este framework. 
 * Device. El hardware del dispositivo que genero los datos almacenados en el _sample_. 
 
-Para crear un tipo de objeto, se debe llamar al metodo de la clase HKObjectType, y pasar el tipo de identificador deseado. 
+Para crear cualquier tipo de objeto, se debe llamar un metodo de la clase HKObjectType, y pasar el tipo deseado de identificador. 
 
 ```swift
 let bloodType = HKObjectType.characteristicType(forIdentifier: .bloodType)
@@ -77,61 +77,70 @@ La clase *HKSample* es una subclase de *HKObject*.  Los objetos _Sample_ son aqu
 
 Para usar HealthKit se tienen que atender los siguientes pasos: 
 
-1. Habilitar HealthKit en tu app.  
-In Xcode, select the project and turn on the HealthKit capability (see Figure 1). Only enable the Health Records checkbox if your app needs to access the user’s clinical records. App Review may reject apps that enable the Health Records capability if the app doesn’t use the Health Record data.
+#### 1. Habilitar HealthKit en tu app.  
+Dentro de Xcode, selecciona el proyecto y habilita HealthKit. Solo habilita Health Records si tu app necesita acceso al *historial clinico* del usuario. Al subir tu app al App Store, la revision de apps (App Review) puede rechazar apps que habiliten Health Records si la app no usa ningun dato del historial clinico.   
 
-![Enable HealthKit capabilities](https://docs-assets.developer.apple.com/published/749e5c40bb/c46af629-7d07-4402-98fc-c9657cfc5594.png)
+![Enable HealthKit capabilities](https://medisana.zendesk.com/hc/de/article_attachments/200820591/unnamed.png)
 
-For a detailed discussion about enabling capabilities, see Configure HealthKit in Xcode Help. [Configuracion de HealthKit](https://help.apple.com/xcode/mac/current/#/dev1a5823416)
-When you enable the HealthKit capabilities on an iOS app, Xcode adds HealthKit to the list of required device capabilities. This prevents users from purchasing or installing the app on devices that don’t support HealthKit.
+Mas informacion para habilitar capacidades en la configuracion del HealthKit -> [Configuracion de HealthKit](https://help.apple.com/xcode/mac/current/#/dev1a5823416)
 
+Cuando se habilita HealthKit en una app de iOS, Xcode añade HealthKit a la lista de capacidades requeridas del dispositivo, esto previene que usuarios con dispositivos que no tengan disponible HealthKit puedan comprar o instalar la app. 
 
-2. Asegurar que HealthKit este disponible en el dispositivo actual. 
-Call the isHealthDataAvailable() method to confirm that HealthKit is available on the user's device.
+#### 2. Asegurar que HealthKit este disponible en el dispositivo actual. 
+Usa el metodo isHealthDataAvailable() para confirmar si HealthKit esta disponible en el dispositivo del usuario. 
 
 ```swift
 if HKHealthStore.isHealthDataAvailable() {
     // Add code to use HealthKit here.
 }
 ```
-Call this method before calling any other HealthKit methods. If HealthKit is not available on the device (for example, on an iPad), other HealthKit methods fail with an errorHealthDataUnavailable error. If HealthKit is restricted (for example, in an enterprise environment), the methods fail with an errorHealthDataRestricted error.
+Usa este metodo antes de usar cualquier otro metodo de HealthKit. Si Healthkit no esta disponible en el dispositivo, los metodos consecuentes fallaran con el error: **errorHealthDataUnavailable** (Por ej. en Ipads). Si el HealthKit esta restringido, los metodos consecuentes fallaran con el error: **errorHealthDataRestricted**. 
 
-
-3. Crear tu almacen de HealthKit (HealthKit store).
-If HealthKit is both enabled and available, instantiate an HKHealthStore object for your app as shown:
+#### 3. Crear tu almacen de HealthKit (HealthKit store).
+Si HealthKit esta disponible y habilitado, instancia un objeto de HKHealthStore: 
 
 ```swift
 let healthStore = HKHealthStore()
 ```
-You need only a single HealthKit store per app. These are long-lived objects; you create the store once, and keep a reference for later use.
+Solo se necesita una sola instancia de este objeto por app. Creas el store una vez y la referencua se guarda para usos posteriores. 
 
+#### 4. Solicitar permisos para leer y compartir datos. 
+Para proteger la privacidad del usuario, HealthKit requiere autorizaciones especificadas. Se debe pedir permiso tanto para leer como para compartir cada tipo de dato usado en la app antes de acceder o guardar los datos, sin embargo, no se necesitan permisos para acceder a todos los tipos de datos al mismo tiempo, en lugar de esto solo pide el permiso cada vez que se necesite acceso a cada cierto tipo de dato. 
 
-4. Solicitar permisos para leer y compartir datos. 
-To help protect the user’s privacy, HealthKit requires fine-grained authorization. You must request permission to both read and share each data type used by your app before you attempt to access or save the data. However, you don’t need to request permission for all data types at once. Instead, it may make more sense to wait until you need to access the data before asking for permission.
-The example below shows the SpeedySloth app asking for permission to read and share energy burned, cycling distance, walking or running distance, and heart rate samples.
+En el siguiente ejemplo se configuran los datos para lectura que en este caso son _conteo de pasos_ y _sexo_, y tambien se configura el _conteo de pasos_ para escritura. (en _sexo_ no se puede escribir ningun dato). 
+Finalmente se pide autorizacion y se pasan los datos de lectura al parametro _read_ y los datos de escritura al parametro _toShare_ .
 
 ```swift
-let allTypes = Set([HKObjectType.workoutType(),
-                    HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                    HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
-                    HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-                    HKObjectType.quantityType(forIdentifier: .heartRate)!])
-
-healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
-    if !success {
-        // Handle the error here.
+let healthStore = HKHealthStore()
+ 
+override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    if HKHealthStore.isHealthDataAvailable() {
+        let readDataTypes : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+                               HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!]
+        
+        let writeDataTypes : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!]
+        
+        healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes) { (success, error) in
+            if !success {
+                // Handle the error here.
+            } else {
+                // Do the work
+            }
+        }
     }
 }
 ```
-Any time your app requests new permissions, the system displays a form with all the requested data types shown.
+Cada vez que tu app pida permisos, el sistema desplegará una vista con los tipos de datos que requieran permisos. 
 
-![Request permission for the Fit app](https://docs-assets.developer.apple.com/published/b29fb46f50/fddfad5c-7cc0-4aa9-a643-19d7e9d3893d.png)
+![Request permission for the Fit app](https://www.devfright.com/wp-content/uploads/2018/07/permissions-300x534@2x.png)
 
-You must also provide custom messages for the permissions sheet. Xcode requires a separate custom message for reading and writing HealthKit data. In your app’s Info.plist, set the NSHealthShareUsageDescription key to customize the message for reading data. Set the NSHealthUpdateUsageDescription key to customize the message for writing data.
-If the user grants permission to share a data type, you can create new samples of that type and save them to the HealthKit store. However, before attempting to save any data, check to see if your app is authorized to share that data type by calling the authorizationStatus(for:) method. If you have not yet requested permission, any attempts to save fail with an HKError.Code.errorAuthorizationNotDetermined error.
+Tambien se deben proveer mensajes que soliciten el permiso para leer o escribir datos de HealthKit. En el Info.plist de tu app usa la llave **NSHealthShareUsageDescription** para configurar el mensaje de escritura de datos. 
+Si el usuario concede permisos para compartir datos de algun tipo en especifico, se pueden crear _samples_ de ese tipo y guardarlos en el almacen de HealthKit (HealthKit Store), sin embargo, antes de guardar cualquier dato, se debe revisar si el app esta autorizada para compartir los datos usando el metodo: _authorizationStatus(for:)_. Si no se ha pedido permisos, cualquier intento de guardar datos mandara un error de tipo: **HKError.Code.errorAuthorizationNotDetermined**. 
 
 ## [Guardar datos en HealthKit](https://developer.apple.com/documentation/healthkit/saving_data_to_healthkit). 
-
 
 
 ### [Crear y Compartir HealthKit _Samples_](https://developer.apple.com/documentation/healthkit/samples) 
@@ -143,6 +152,6 @@ If the user grants permission to share a data type, you can create new samples o
 ###  [Usar _Queries_ para solicitar _sample_ datos de HealthKit](https://developer.apple.com/documentation/healthkit/queries) 
 
 
-### Para consultar mucha mas información: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
+## Para consultar mucha mas información: [Health & Fitness Videos for iOS developers](https://developer.apple.com/videos/frameworks/health-and-fitness)
 
 
