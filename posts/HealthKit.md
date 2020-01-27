@@ -7,7 +7,7 @@
 Con el permiso del usuario, las apps construidas con **HealthKit** pueden comunicarse con la **Health app** para acceder y compartir informacion.
 Un usuario puede permitir, por ejemplo, que una app de nutricion obtenga datos sobre el peso y las actividades diarias de forma que la app pueda definir un consumo optimo de calorias y hacer recomendaciones nutricionales.
 
-**Threading**. El almacèn (store) del HealthKit  opera bajo un hilo seguro (thread-safe), y gran parte de sus objetos son inmutables. Tambien se puede usar en multiprocesos (multithreaded).
+**Threading**. El almacèn de HealthKit (HealthKit Store) opera bajo un hilo seguro (thread-safe), y gran parte de sus objetos son inmutables. Tambien se puede usar en multiprocesos (multithreaded).
 Tanto el iPhone como el Apple Watch almacenan los datos del healthkit por separado pero se pueden sincronizar automaticamente, sin embargo, para guardar espacio el Apple Watch elimina datos que sean muy antiguos. 
 **HealthKit no esta disponible para iPad**
 
@@ -26,7 +26,7 @@ Al trabajar con **Health app** es importante tomar en cuenta los siguientes punt
 * HealthKit esta disenado igualmente para administrar y combinar datos de multiples dispositivos.
 * El app ha desarrollar no debe acceder al API de HealthKit a menos que este diseñada precisamente para ofrecer servicios fitness o de salud.
 * El rol de la app debe dejar en claro que cualquier _marketing_ y/o diseño de interfaz de usuario es sobre servicios fitness y/o de salud. No se debe usar datos del HealthKit para dar servicio a cualquier tipo de publicidad, o vender datos a revendedores de informacion o plataformas de publicidad.  
-* Unicamente se deben compartir datos del HealthKit a terceros si estos tambien proveen servicios fitness o de salud al usuario que, al mismo tiempo,  debe dar permiso para que se compartan. 
+* Únicamente se deben compartir datos del HealthKit a terceros si estos tambien proveen servicios fitness o de salud al usuario que, al mismo tiempo,  debe dar permiso para que se compartan. 
 * Se debe explicar claramente al usuario como se usaran sus datos. 
 * Si la app en desarrollo requiere acceso a archivos con datos clinicos especificos para funcionar, hay que especificar los tipos de archivos clinicos requeridos en el Info.plist de la app usando la llave siguiente: **lNSHealthRequiredReadAuthorizationTypeIdentifiers**. 
 * Se deben crear politicas de privacidad para cualquier app que use el framework de HealthKit. Se puede encontrar documentacion para crear politicas de privacidad en los siguientes sitios: 
@@ -40,7 +40,7 @@ Los developers no pueden crear tipos o unidades de datos propios al trabajar con
 Los tipos de datos que HealthKit puede ofrecer en su almacèn (store) son: 
 - Characteristic data. Estos representan items que tipicamente no cambian como el cumpleaños del usuario, tipo de sangre, sexo y tipo de piel. 
 - Sample data. Gran parte de los datos de salud del usuario son almacenados en _samples_ que representan datos en un punto particular del tiempo. 
-- Workout data. Informarmacion sobre fitness y ejercicios son almacenados en HKWorkout samples, por ejemplo.
+- Workout data. Información sobre fitness y ejercicios son almacenados en HKWorkout samples, por ejemplo.
 - Source data. Cada sample almacena informacion sobre su origen, por ejemplo, el objeto HKSourceRevision contiene informacion sobre la app o el dispositivo que almacena el tipo de _sample_, y el objeto HKDevice contiene informacion sobre el hardware del dispositivo que genero los datos.  
 - Deleted objects. Una instancia de HKDeletedObject es usada para almacenar temporalmente el UUID de un item que ha sido eliminado del almacen (store) de HealthKit. 
 
@@ -82,7 +82,7 @@ Dentro de Xcode, selecciona el proyecto y habilita HealthKit. Solo habilita Heal
 
 ![Enable HealthKit capabilities](https://docs-assets.developer.apple.com/published/749e5c40bb/c46af629-7d07-4402-98fc-c9657cfc5594.png)
 
-Mas informacion para habilitar capacidades en la configuracion del HealthKit -> [Configuracion de HealthKit](https://help.apple.com/xcode/mac/current/#/dev1a5823416)
+Mas información para habilitar capacidades en la configuracion del HealthKit -> [Configuracion de HealthKit](https://help.apple.com/xcode/mac/current/#/dev1a5823416)
 
 Cuando se habilita HealthKit en una app de iOS, Xcode añade HealthKit a la lista de capacidades requeridas del dispositivo, esto previene que usuarios con dispositivos que no tengan disponible HealthKit puedan comprar o instalar la app. 
 
@@ -96,7 +96,7 @@ if HKHealthStore.isHealthDataAvailable() {
 ```
 Usa este metodo antes de usar cualquier otro metodo de HealthKit. Si Healthkit no esta disponible en el dispositivo, los metodos consecuentes fallaran con el error: **errorHealthDataUnavailable** (Por ej. en Ipads). Si el HealthKit esta restringido, los metodos consecuentes fallaran con el error: **errorHealthDataRestricted**. 
 
-#### 3. Crear tu almacen de HealthKit (HealthKit store).
+#### 3. Crear tu almacén de HealthKit (HealthKit Store).
 Si HealthKit esta disponible y habilitado, instancia un objeto de HKHealthStore: 
 
 ```swift
@@ -137,12 +137,12 @@ Cada vez que tu app pida permisos, el sistema desplegará una vista con los tipo
 
 ![Request permission for the Fit app](https://www.devfright.com/wp-content/uploads/2018/07/permissions-300x534@2x.png)
 
-Tambien se deben proveer mensajes que soliciten el permiso para leer o escribir datos de HealthKit. En el Info.plist de tu app usa la llave **NSHealthShareUsageDescription** para configurar el mensaje de escritura de datos. 
+Tambien se deben proveer mensajes que soliciten el permiso para leer o escribir datos de HealthKit. En el **Info.plist** de tu app usa la llave **NSHealthShareUsageDescription** para configurar el mensaje de escritura de datos. 
 Si el usuario concede permisos para compartir datos de algun tipo en especifico, se pueden crear _samples_ de ese tipo y guardarlos en el almacen de HealthKit (HealthKit Store), sin embargo, antes de guardar cualquier dato, se debe revisar si el app esta autorizada para compartir los datos usando el metodo: **authorizationStatus(for:)**. Si no se ha pedido permisos, cualquier intento de guardar datos mandara un error de tipo: **HKError.Code.errorAuthorizationNotDetermined**. 
 
 ## [Guardar datos en HealthKit](https://developer.apple.com/documentation/healthkit/saving_data_to_healthkit). 
 
-Cuando se trata de guardar datos en HealthKit, se debe trabajar con _samples_. Puedes crear _samples_ nuevos y añadirlos al almacen (HK Store). Aunque cada _sample_ se rige por un metodo diferente de configuracion, comparten un proceso similar: 
+Cuando se trata de guardar datos en HealthKit, se debe trabajar con _samples_. Puedes crear _samples_ nuevos y añadirlos al almacen (HealthKit Store). Aunque cada _sample_ se rige por un metodo diferente de configuracion, comparten un proceso similar: 
 
 1. Revisa el tipo de identificador de tus datos. Por ejemplo, para guardar el peso de un usuario, se usa  _bodyMass_ como identificador. Revisar [Tipo de datos](https://developer.apple.com/documentation/healthkit/data_types)
 2. Usa el metodo adecuado en la clase HKObjectType para crear el tipo de objeto correcto para tus datos. Por ejemplo, para guardar el peso, se deberia crear un objeto del tipo _HKQuantityType_ usando el metodo **quantityType(forIdentifier:)**. 
