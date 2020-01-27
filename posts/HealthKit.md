@@ -13,9 +13,9 @@ Tanto el iPhone como el Apple Watch almacenan los datos del healthkit por separa
 
 ## [Privacidad del Usuario](https://developer.apple.com/documentation/healthkit/protecting_user_privacy).
 
-Los datos del **HealthKit** deben ser almacenados localmente en el dispositivo del usuario. El almacèn para HealthKit
+Los datos de HealthKit deben ser almacenados localmente en el dispositivo del usuario. El almacén para HealthKit
 es encriptado cuando el dispositivo es bloqueado y solo puede ser accesado por una app autorizada. 
-Como resultado, no se pueden leer datos del almacenamiento del Healthkit cuando el app trabaja en un hilo secundario (background): sin embargo, las apps a desarrollar pueden seguir escribiendo datos en el almacenamiento incluso cuando el dispositivo esta bloqueado. Healthkit toma estos datos y los guarda en el almacenamiento encriptado tan pronto como el celular es desbloqueado. 
+Como resultado, no se pueden leer datos del almacenamiento del Healthkit cuando el app trabaja en un hilo secundario, sin embargo, las apps a desarrollar pueden seguir escribiendo datos en el almacenamiento incluso cuando el dispositivo esta bloqueado. Healthkit toma estos datos y los guarda en el almacenamiento encriptado tan pronto como el celular es desbloqueado. 
 
 Al trabajar con **Health app** es importante tomar en cuenta los siguientes puntos: 
 * Pide acceso a los datos de salud solamente cuando sea necesario.
@@ -23,12 +23,12 @@ Al trabajar con **Health app** es importante tomar en cuenta los siguientes punt
 * Siempre que se compartan datos de salud se debe hacer a traves de *Settings > Privacy* del sistema.  
 * No uses iconos, imagenes y screenshots de la Health app en tu app de desarrollo, esto por motivos de copyright.
 * No uses el termino *HealthKit*. Si necesitas explicar que tu app trabaja con datos de este framework, usa el termino **Health app**.
-* **HealthKit** esta disenado igualmente para administrar y combinar datos de multiples dispositivos.
+* HealthKit esta disenado igualmente para administrar y combinar datos de multiples dispositivos.
 * El app ha desarrollar no debe acceder al API de HealthKit a menos que este diseñada precisamente para ofrecer servicios fitness o de salud.
 * El rol de la app debe dejar en claro que cualquier _marketing_ y/o diseño de interfaz de usuario es sobre servicios fitness y/o de salud. No se debe usar datos del HealthKit para dar servicio a cualquier tipo de publicidad, o vender datos a revendedores de informacion o plataformas de publicidad.  
 * Unicamente se deben compartir datos del HealthKit a terceros si estos tambien proveen servicios fitness o de salud al usuario que, al mismo tiempo,  debe dar permiso para que se compartan. 
 * Se debe explicar claramente al usuario como se usaran sus datos. 
-* Si la app en desarrollo requiere acceso a archivos con datos clinicos especificos para funcionar, hay que especificar los tipos de archivos clinicos requeridos en el Info.plist de la app usando la llave siguiente: lNSHealthRequiredReadAuthorizationTypeIdentifiers. 
+* Si la app en desarrollo requiere acceso a archivos con datos clinicos especificos para funcionar, hay que especificar los tipos de archivos clinicos requeridos en el Info.plist de la app usando la llave siguiente: **lNSHealthRequiredReadAuthorizationTypeIdentifiers**. 
 * Se deben crear politicas de privacidad para cualquier app que use el framework de HealthKit. Se puede encontrar documentacion para crear politicas de privacidad en los siguientes sitios: 
 
     - [Personal Health Record model (for non-HIPAA apps)](http://www.healthit.gov/policy-researchers-implementers/personal-health-record-phr-model-privacy-notice)
@@ -73,7 +73,7 @@ La clase *HKSample* es una subclase de *HKObject*.  Los objetos _Sample_ son aqu
     * Correlations. Compuesto de datos que representan uno o mas _samples_ de comida o presion arterial. 
     * Workouts. Datos que representan actividades fisicas como correr, nadar o jugar. Estos generalmente tienen propiedades de  tipo, duracion, distancia y calorias quemadas.  
 
-## Implementacion del HealthKit [(HealthKit Setup)](https://developer.apple.com/documentation/healthkit/setting_up_healthkit#2962431).
+## Implementación del HealthKit [(HealthKit Setup)](https://developer.apple.com/documentation/healthkit/setting_up_healthkit#2962431).
 
 Para usar HealthKit se tienen que atender los siguientes pasos: 
 
@@ -138,7 +138,7 @@ Cada vez que tu app pida permisos, el sistema desplegará una vista con los tipo
 ![Request permission for the Fit app](https://www.devfright.com/wp-content/uploads/2018/07/permissions-300x534@2x.png)
 
 Tambien se deben proveer mensajes que soliciten el permiso para leer o escribir datos de HealthKit. En el Info.plist de tu app usa la llave **NSHealthShareUsageDescription** para configurar el mensaje de escritura de datos. 
-Si el usuario concede permisos para compartir datos de algun tipo en especifico, se pueden crear _samples_ de ese tipo y guardarlos en el almacen de HealthKit (HealthKit Store), sin embargo, antes de guardar cualquier dato, se debe revisar si el app esta autorizada para compartir los datos usando el metodo: _authorizationStatus(for:)_. Si no se ha pedido permisos, cualquier intento de guardar datos mandara un error de tipo: **HKError.Code.errorAuthorizationNotDetermined**. 
+Si el usuario concede permisos para compartir datos de algun tipo en especifico, se pueden crear _samples_ de ese tipo y guardarlos en el almacen de HealthKit (HealthKit Store), sin embargo, antes de guardar cualquier dato, se debe revisar si el app esta autorizada para compartir los datos usando el metodo: **authorizationStatus(for:)**. Si no se ha pedido permisos, cualquier intento de guardar datos mandara un error de tipo: **HKError.Code.errorAuthorizationNotDetermined**. 
 
 ## [Guardar datos en HealthKit](https://developer.apple.com/documentation/healthkit/saving_data_to_healthkit). 
 
@@ -157,10 +157,10 @@ Al guardar gran parte de los datos de salud y fitness en HealthKit  se usa una s
 
 HealthKit usa diferentes subclases de HKSample para almacenar diversos tipos de datos: 
 - Objetos de tipo**HKQuantitySample** almacenan cantidades, valores numericos y unidades. (Ej. Altura, ritmo cardiaco, calorias consumidas, etc.)
-##### Guardar _Quantity Samples_ en HealthKit [Tutorial.](https://www.devfright.com/creating-and-saving-data-in-healthkit/)
+    * Guardar _Quantity Samples_ en HealthKit [Tutorial.](https://www.devfright.com/creating-and-saving-data-in-healthkit/)
     
 - Objetos de tipo **HKCategorySample** almacenan una sola opcion de una lista pequeña. (Ej. Datos de fases del sueño como, "en cama", "durmiendo" o "despierto").
-##### Guardar _Category Samples_ en HealthKit [Tutorial.](https://www.devfright.com/saving-category-samples-with-healthkit/)
+    * Guardar _Category Samples_ en HealthKit [Tutorial.](https://www.devfright.com/saving-category-samples-with-healthkit/)
 
 - Objetos de tipo **HKCorrelation** combinan dos o mas _samples_ en un solo valor. (Ej. Alimentos y presion sanguinea) .
 
@@ -170,13 +170,13 @@ HealthKit usa diferentes subclases de HKSample para almacenar diversos tipos de 
 
 Existen tres formas principales de accesar a los datos del almacen de Healthkit: 
 - Usando metodos. HealthKit store provee metodos especificos para accesar datos caracteristicos. 
-##### Leer datos caracteristicos de HealthKit [Tutorial.](https://www.devfright.com/reading-characteristic-data-from-healthkit/) 
+    * Leer datos caracteristicos de HealthKit [Tutorial.](https://www.devfright.com/reading-characteristic-data-from-healthkit/) 
 
 - Usando _Queries_. _Queries_ devuelven un _snapshot_ o _'pantallazo'_  de los datos requeridos del HealthKit store.
-##### Usar _HKSampleQuery_ de HealthKit [Tutorial.](https://www.devfright.com/hksamplequery-tutorial-and-examples/) 
+    * Usar _HKSampleQuery_ de HealthKit [Tutorial.](https://www.devfright.com/hksamplequery-tutorial-and-examples/) 
 
 - Long-running queries. Estos  _queries_ corren en el  _background_ de la aplicacion y actualizan la app cada vez que exista un cambio realizado en el HealthKit store.
-##### Usar _Long-Running HKActivitySummaryQuery_ de HealthKit [Tutorial.](https://www.devfright.com/hkactivitysummaryquery-long-running-query/) 
+    * Usar _Long-Running HKActivitySummaryQuery_ de HealthKit [Tutorial.](https://www.devfright.com/hkactivitysummaryquery-long-running-query/) 
 
 ###  [Usar _Queries_ para solicitar _sample_ datos de HealthKit](https://developer.apple.com/documentation/healthkit/queries) 
 
