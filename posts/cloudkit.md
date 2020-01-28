@@ -3,7 +3,7 @@ title: CloudKit
 category: ios
 ---
 
-#**CloudKit**
+# **CloudKit**
 
 CloudKit es la tecnología  de Apple en donde es posible tener disponibles tanto los datos de una aplicación como los datos de usuario en el momento que se requiera en múltiples dispositivos. Lo único que se requiere es conexión a internet y una cuenta de iCloud válida.
 
