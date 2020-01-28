@@ -1,5 +1,5 @@
 ---
-title: CommonCrypto
+title: CloudKit
 category: ios
 ---
 
@@ -28,3 +28,4 @@ Para activar CloudKit en la app basta con realizar los siguientes pasos:
 3.  En la ventana que aparece buscar **iCloud.** Es importante contar con ID de Apple asociado a la cuenta de desarrollador logueado.
 4.  Seleccionar un Team
 
+![Figura 1](https://raw.githubusercontent.com/JulesLeGrand/wiki/master/assets/cloudkit_capabilities.png)
