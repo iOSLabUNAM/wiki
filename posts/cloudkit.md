@@ -29,3 +29,88 @@ Para activar CloudKit en la app basta con realizar los siguientes pasos:
 4.  Seleccionar un Team
 
 ![Figura 1](https://github.com/JulesLeGrand/wiki/blob/master/cloudkit_capabilities.png)
+
+![Figura 2](https://github.com/JulesLeGrand/wiki/blob/master/cloudkit_cloud.png)
+
+El siguiente paso es habilitar el checkbox de CloudKit.
+
+![Figura 3](https://github.com/JulesLeGrand/wiki/blob/master/cloudkit_checkboxes.png)
+
+Finalmente hay dos opciones: Se puede elegir en **(5)** algún contenedor existente o dar click en **+**, con lo que aparecería una ventana, en donde se recomienda rellenar con el bundleId:
+
+![Figura 4](https://github.com/JulesLeGrand/wiki/blob/master/cloudkit_newcontainer.png)
+
+Para acceder al Dashboard de CloudKit sólo es necesario dar click en el botón de hasta abajo con la leyenda **CloudKit Dashboard**.
+
+
+Para usar CloudKit es necesario agregar el import a la clase.
+
+```swift
+Import CloudKit
+```
+
+Para trabajar con el contenedor lo mejor sería usar una constante como propiedad de la clase.
+```swift
+let container = CKContainer.defaultContainer()
+```
+
+Para seleccionar la base pública basta agregar la propiedad `publicCloudDatabase` al contenedor.
+
+  
+```swift
+let database = contenedor.publicCloudDatabase
+```
+
+Para recuperar datos de la base es necesario usar un `CKQuery`, que describe cómo encontrar todos los registros de un determinado tipo que coincidan con ciertos criterios. Los criterios pueden ser algo así como *“todos los registros con el campo Apellido que comienzan ‘H’”*. Por lo que es necesario usar un `NSPredicate` para manejar este tipo de criterios.
+
+```swift
+let predicate = NSPredicate(value: true)
+```
+  
+Por último, se emplea un objeto de tipo `CKQuery`, el cual recuperará los datos del record Type.
+
+```swift
+let query = CKQuery(recordType: “Lista”, predicate: predicate)
+```
+
+Y llamando a la instancia de la base de datos ejecutamos el query de forma asíncrona.
+
+```swift
+database.performQuery(query, inZoneWithID: nil) { results, error in
+	
+	if error != nil {
+		print(“Algo falló con la base de datos“)
+	} else {
+	
+		guard let resultado = results else {
+			return
+		}
+	
+		for resultado in resultado {
+			let nombre = resultado objectForKey("Nombre") as! String
+
+			let apellidos = resultado.objectForKey("Apellidos") as! String
+
+			let telefono = resultado.objectForKey("Telefono") as! Int
+
+			print(nombre, apellidos, telefono)
+
+		}
+
+	}
+
+}
+```
+  
+
+Si se requiere ordenar los resultados de la consulta, se debe crear antes del `NSPredicate` un objeto `NSSortDescriptor`.
+
+```swift
+let sort = NSSortDescriptor(key: “Apellidos”, ascending: true)
+```
+
+Después, antes del `performQuery` se pasa como parámetro el objeto a la propiedad `sortDescriptors`.
+
+```swift
+query.sortDescriptors = [sort]
+```
