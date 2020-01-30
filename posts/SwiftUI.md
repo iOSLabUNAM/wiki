@@ -165,15 +165,38 @@ Con este cambio aplicado a nuestro proyecto nos daremos cuenta que ahora en el *
 
 Ya hemos aprendido la mayoria de la teoria básica que nos trae este framework como minimo para poder usarlo. Ahora solo enlistare algunas funciones que agregaran elementos a nuestros **Stack**.
 
+* Nota: Una consideración importante es que SwiftUI solo permite 10 elementos dentro de cada Stack para evitar problemas de rendimiento, aunque si tu quieres poner 10 Stack dentro de un solo Stack la capacidad de elementos será de 100, aunque puede que tu aplicación se vea afectada en cuanto a rendimiento y posiblemente en su logica, entonces es  recomendable usar solo aquellos elementos que sean importantes o sin los que tu App no pueda vivir. 
+
 &nbsp;
+
+
 
 - `Spacer()` - expande o da espacio entre un elemento y otro en el orden de su **Stack**
 - `HStack(){ }.padding(.all)` - Genera espacio entre los elementos con cierto margen de separación apegado al espacio de neustra vista
-- `` -
-- `` -
-- `` -
-- `` -
-- `` -
+- `Text()` - Equivalente al Label en SB
+- `Image("imagen")` - Añade una imagen al canvas
+- `Button(){}` - Boton simple, dentro debe tener elementos para hacerlo funcional
+
+&nbsp;
+
+### Estados en SwiftUI
+
+#### State
+
+¿Que es el State?
+
+Los **State** funcionan para poder verificar los estados de variables o de elementos de nuestro proyecto y poder cambiarlos en tiempo real despues de la interacción de un usuario con dicho elemento, para ello habrá que usar siempre `@State` antes de nuestra declaracion de la variable , la nomenclatura para esto es la siguiente: `@State <private> var nombre = "Pedro"` el private es opcional pero se recomienda que se añada por razones que veremos mas adelante.
+
+#### Tipos de State
+
+En SwiftUI podemos tener 3 tipos de State los cuales se usan dependiendo de la cantidad de vistas en las que dicha variable se va a usar. Los tipos son los siguientes:
+
+`@State` - Variable que se va a usar en una vista, se recomienda que se use la palabra reservada `private`despues de la sentencia para reafirmar que nuestra variable se usara solo en la vista en la que se esta declarando.
+
+`@ObservedObject` - Se usa como prefijo de las variables que serán usadas por dos vistas como maximo.
+
+`@EnviromentObject` - Se usa como prefijo de las variables que serán usadas en todo el proyecto.
+
 
 
 > SwiftUI será el futuro de las tecnologias moviles 
