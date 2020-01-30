@@ -198,5 +198,8 @@ En SwiftUI podemos tener 3 tipos de State los cuales se usan dependiendo de la c
 `@EnviromentObject` - Se usa como prefijo de las variables que serán usadas en todo el proyecto.
 
 
+Con esto terminamos la introducción a SwiftUI, las explicaciones aquí vistas servirán solo como referencia, se recomienda revisar el tutorial de SwiftUI en apple.developer.com para interactual con los elementos de una mejor manera.
 
-> SwiftUI será el futuro de las tecnologias moviles 
+Al tiempo de esta redacción para la wiki de IOSLab SwiftUI lleva 9 meses de "vida" por lo que la sintaxis o elementos, así como funcionalidades o protocolos pueden llegar a cambiar.
+
+> "SwiftUI será el futuro de las tecnologias moviles" 
