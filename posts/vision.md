@@ -28,13 +28,14 @@ Esta construido sobre CoreML y Core Image, Vision nos da las herramientas necesa
 
 Vision también permite el uso de modelos Core ML personalizados para tareas como clasificación o detección de objetos.
 
-## Ejemplo de detección de texto con Vision 
+## Ejemplo de detección de texto con Vision
+![](https://i.ibb.co/fn08r7V/app.png)
 
 En este ejemplo utilizaremos el framework Vision para detectar un párrafo en una imágen y convertirlo a texto.
 
 Primero debemos de crear un nuevo proyecto en Xcode como Single View App y en el **Main.storyboard** crea la siguente pantalla.
 
-**imagen de la pantalla**
+![](https://i.ibb.co/yXrDp9W/pantalla.png)
 
 Después ligaremos el TextView y el Botón al ViewController.swift.
 
