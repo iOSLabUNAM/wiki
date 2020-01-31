@@ -78,34 +78,37 @@ Seguido a eso crearemos esta función, la cual nos permitirá obtener una imáge
 
 ```
 func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-               let image = scan.imageOfPage(at: 0)
-               let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-               do {
-                   try handler.perform([textRecognitionRequest])
-               } catch {
-                   print(error)
-               }
-               controller.dismiss(animated: true)
-           }
+
+    let image = scan.imageOfPage(at: 0)
+    let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+    do {
+        try handler.perform([textRecognitionRequest])
+    } catch {
+        print(error)
+    }
+    controller.dismiss(animated: true)
+}
 ```
 
 Por último dentro de la función ViewDidLoad( ), debajo de super.viewDidLoad() pondremos el siguente código, el cual al obtener la imágen aplicará los algorítmos del kit Vision para poder reconocer el texto y presentarlo en el TextView.
 
 ```
 textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
-                       if let results = request.results, !results.isEmpty {
-                           if let requestResults = request.results as? [VNRecognizedTextObservation] {
-                               self.recognizedText = ""
-                               for observation in requestResults {
-                                   guard let candidiate = observation.topCandidates(1).first else { return }
-                                   self.recognizedText += candidiate.string
-                                   self.recognizedText += "\n"
-                               }
-                               self.scannedText.text = self.recognizedText
-                           }
-                       }
-                   })
-                   textRecognitionRequest.recognitionLevel = .accurate
-                   textRecognitionRequest.usesLanguageCorrection = false
-                   textRecognitionRequest.customWords = ["@gmail.com", "@outlook.com", "@yahoo.com", "@icloud.com"]
+    if let results = request.results, !results.isEmpty {
+        if let requestResults = request.results as? [VNRecognizedTextObservation] {
+            self.recognizedText = ""
+            for observation in requestResults {
+                guard let candidiate = observation.topCandidates(1).first else { return }
+                                   
+                self.recognizedText += candidiate.string
+                
+                self.recognizedText += "\n"
+            }
+                self.scannedText.text = self.recognizedText
+        }
+    }
+})
+textRecognitionRequest.recognitionLevel = .accurate
+textRecognitionRequest.usesLanguageCorrection = false
+textRecognitionRequest.customWords = ["@gmail.com", "@outlook.com", "@yahoo.com", "@icloud.com"]
 ```
