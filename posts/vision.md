@@ -66,11 +66,11 @@ var recognizedText = ""
 Dentro de la funcion scanButton creada al ligar el botón y el controlador, meteremos el siguente codigo:
 
 ```
-        @IBAction func scanButton(_ sender: Any) {
-            let documentCameraViewController = VNDocumentCameraViewController()
-                  documentCameraViewController.delegate = self
-                  self.present(documentCameraViewController, animated: true, completion: nil)
-        }
+ @IBAction func scanButton(_ sender: Any) {
+    let documentCameraViewController = VNDocumentCameraViewController()
+    documentCameraViewController.delegate = self
+    self.present(documentCameraViewController, animated: true, completion: nil)
+}
 ```
 Este código nos ayudará a poder prender la camara en el modo escáner de documentos .
 
