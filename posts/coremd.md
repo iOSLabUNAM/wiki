@@ -48,7 +48,7 @@ Inferir nuevas instrucciones de los datos es la fuerza central del aprendizaje a
 ## CoreML 
 Core ML es la base de los frameworks y la funcionalidad específicos del dominio. Core ML admite Vision para analizar imágenes, Lenguaje Natural para procesar texto, Voz para convertir audio a texto y Análisis de sonido para identificar sonidos en audio. Core ML se construye sobre primitivas de bajo nivel como Accelerate y BNNS, así como Metal Performance Shaders.
 
-![coreml2](coreml2.png)
+![coreml2](wiki/coreml2.png)
 
 Core ML integra modelos de machine learning en una aplicación. Core ML proporciona una representación unificada para todos los modelos. Su aplicación utiliza las API de Core ML y los datos del usuario para hacer predicciones y entrenar o ajustar modelos, todo en el dispositivo del usuario.
 
