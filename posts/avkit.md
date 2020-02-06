@@ -47,7 +47,7 @@ videoPlayerController.player = AVPlayer(url: url)
 
 El Código anterior busca un video en los recursos llamado “videito.mp4” y obtiene una url del archivo. Posteriormente crea una instancia de AVPlayer el cual apunta al archivo de video y es asignado a la instancia del reproductor de video. La instancia de AVPlayerViewController usa la instancia de AVPlayer para reproducir el video y maneja el control del mismo de forma interna.
 
-Esta es la forma más básica de integrar videos con AVKIt en una aplicación de iOS y sirve de punto de partida para realizar integraciones mas avanzadas.
+Esta es la forma más básica de integrar videos con AVKIt en una aplicación de iOS y sirve de punto de partida para realizar integraciones más avanzadas.
 
 [![Foo](https://i.stack.imgur.com/erb6e.jpg)](https://i.stack.imgur.com/erb6e.jpg)
 
