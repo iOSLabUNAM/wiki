@@ -1,8 +1,7 @@
-
 ---
-title: SwiftUI
+title: Notification Center
 category: ios
---- 
+---
 
 # SwiftUI
 
