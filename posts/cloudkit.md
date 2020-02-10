@@ -114,3 +114,7 @@ Antes del `performQuery` se pasa como parámetro el objeto a la propiedad `sortD
 ```swift
 query.sortDescriptors = [sort]
 ```
+
+
+
+Para más información, consultar:  [Cloudkit Quick Start](https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/CloudKitQuickStart/Introduction/Introduction.html#//apple_ref/doc/uid/TP40014987-CH1-SW1),  [Apple developer](https://developer.apple.com/documentation/cloudkit)
