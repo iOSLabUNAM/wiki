@@ -1,6 +1,6 @@
 ---
-title: Mejores Practicas
-category: annex
+title: Principios Agiles
+category: foundations
 ---
 
 # Principios Agiles

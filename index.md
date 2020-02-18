@@ -51,18 +51,19 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Alertas](posts/alerts)
 
 ## Kits de Desarrollo
-- [CoreML](posts/healthkit)
+- [CoreML](posts/coreml)
 - [HealthKit](posts/healthkit)
 
 ## Apendice
 
-- [Code Reviews](posts/code-reviews) 
+- [Code Reviews](posts/code-reviews)
 - [3rd Party libraries](posts/3rd-party-libraries)
 - [Ruby para Swifteros](posts/ruby-for-swifters)
 - Patrones de diseño:
-  - [MVC](posts/mvc)
-  - [MVVM](posts/mvvm)
   - [SOLID](posts/solid)
+  - [MVC](posts/mvc)
+  - [MVP](posts/mvp)
+  - [MVVM](posts/mvvm)
   - [VIPER](posts/viper)
 - Cheatsheets:
   - [Git](posts/git-cheatsheet)

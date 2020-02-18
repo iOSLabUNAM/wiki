@@ -1,9 +1,9 @@
 ---
-title: Git Cheat Sheet
-category: annex
+title: Git Cheatsheet
+category: appendix
 ---
 
-# Git Cheat Sheet
+# Git Cheatsheet
 
 ## Configuracion inicial
 
