@@ -11,14 +11,26 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.0
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+          architecture: x64
       - name: Cache RubyGems
         uses: actions/cache@v1
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gem-
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
+          pip install proselint
           gem install bundler --no-document;
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
