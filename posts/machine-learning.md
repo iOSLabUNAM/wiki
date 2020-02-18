@@ -18,12 +18,12 @@ Inferir nuevas instrucciones de los datos es la fuerza central del aprendizaje a
 #####  Aunque un modelo de aprendizaje automático puede aplicar una combinación de diferentes técnicas, los métodos de aprendizaje generalmente se pueden clasificar en tres tipos generales:
 
 * __Supervised Machine Learning__
-    ###### El algoritmo de aprendizaje recibe datos etiquetados y la salida deseada. Por ejemplo, las imágenes de perros con la etiqueta "perro" ayudarán al algoritmo a identificar las reglas para clasificar imágenes de perros.
+    El algoritmo de aprendizaje recibe datos etiquetados y la salida deseada. Por ejemplo, las imágenes de perros con la etiqueta "perro" ayudarán al algoritmo a identificar las reglas para clasificar imágenes de perros.
 * __Unsupervised Machine Learning__
-    ###### Los datos proporcionados al algoritmo de aprendizaje no están etiquetados y se le pide al algoritmo que identifique patrones en los datos de entrada. Por ejemplo, el sistema de recomendación de un sitio web de comercio electrónico donde el algoritmo de aprendizaje descubre artículos similares que a menudo se compran juntos.
+    Los datos proporcionados al algoritmo de aprendizaje no están etiquetados y se le pide al algoritmo que identifique patrones en los datos de entrada. Por ejemplo, el sistema de recomendación de un sitio web de comercio electrónico donde el algoritmo de aprendizaje descubre artículos similares que a menudo se compran juntos.
 
 * __Reinforcement Machine Learning__
-    ###### Se trata de tomar medidas adecuadas para maximizar la recompensa en una situación particular. Es utilizado por varios softwares y máquinas para encontrar el mejor comportamiento o ruta posible que debe tomar en una situación específica. El aprendizaje por refuerzo difiere del aprendizaje supervisado en una forma en que en el aprendizaje supervisado los datos de entrenamiento tienen la clave de respuesta, por lo que el modelo se entrena con la respuesta correcta en sí misma, mientras que en el aprendizaje por refuerzo no hay respuesta, pero el agente de refuerzo decide qué hacer. para realizar la tarea dada. En ausencia de un conjunto de datos de entrenamiento, seguramente aprenderá de su experiencia.
+    Se trata de tomar medidas adecuadas para maximizar la recompensa en una situación particular. Es utilizado por varios softwares y máquinas para encontrar el mejor comportamiento o ruta posible que debe tomar en una situación específica. El aprendizaje por refuerzo difiere del aprendizaje supervisado en una forma en que en el aprendizaje supervisado los datos de entrenamiento tienen la clave de respuesta, por lo que el modelo se entrena con la respuesta correcta en sí misma, mientras que en el aprendizaje por refuerzo no hay respuesta, pero el agente de refuerzo decide qué hacer. para realizar la tarea dada. En ausencia de un conjunto de datos de entrenamiento, seguramente aprenderá de su experiencia.
 
 
 ### Supervised Machine Learning
