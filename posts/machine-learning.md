@@ -1,14 +1,17 @@
-# ¿Qué es Machine Learning?
+---
+title: ¿Qué es Machine Learning?
+category: foundations
+---
 
+# ¿Qué es Machine Learning?
 
 Machine Learning es una capa habilitadora horizontal, este enfoque le da a la computadora instrucciones que le permiten aprender de los datos sin nuevas instrucciones paso a paso por parte del programador. Esto significa que las computadoras se pueden usar para tareas nuevas y complicadas que no se pueden programar manualmente. Cosas como aplicaciones de reconocimiento de fotos para personas con discapacidad visual o traducir imágenes al habla.
 
 El proceso básico de Machine Learning es proporcionar datos de entrenamiento a un algoritmo de aprendizaje. El algoritmo de aprendizaje genera un nuevo conjunto de reglas, basado en inferencias de los datos. En esencia, esto genera un nuevo algoritmo, formalmente denominado modelo de aprendizaje automático. Al usar diferentes datos de entrenamiento, el mismo algoritmo de aprendizaje podría usarse para generar diferentes modelos. Por ejemplo, el mismo tipo de algoritmo de aprendizaje podría usarse para enseñarle a la computadora cómo traducir idiomas o predecir el mercado de valores.
 
-Inferir nuevas instrucciones de los datos es la fuerza central del aprendizaje automático. También destaca el papel crítico de los datos: cuantos más datos estén disponibles para entrenar el algoritmo, más aprenderá. De hecho, muchos avances recientes en IA no se han debido a innovaciones radicales en los algoritmos de aprendizaje, sino a la enorme cantidad de datos habilitados por Internet. 
+Inferir nuevas instrucciones de los datos es la fuerza central del aprendizaje automático. También destaca el papel crítico de los datos: cuantos más datos estén disponibles para entrenar el algoritmo, más aprenderá. De hecho, muchos avances recientes en IA no se han debido a innovaciones radicales en los algoritmos de aprendizaje, sino a la enorme cantidad de datos habilitados por Internet.
 
-* **_Es el campo de estudio que le da a las computadoras la habilidad de aprender sin ser explicitamente programadas._**
-    ###### -Arthur Samuel
+> Es el campo de estudio que le da a las computadoras la habilidad de aprender sin ser explicitamente programadas.  _- Arthur Samuel_
 
 ## Tipos de entrenamientos de machine learning:
 
@@ -44,53 +47,3 @@ Inferir nuevas instrucciones de los datos es la fuerza central del aprendizaje a
 * __Model of the environment:__ Esto imita el comportamiento del medio ambiente. Le ayuda a hacer inferencias y también a determinar cómo se comportará el entorno.
 * __Model based methods:__ Es un método para resolver problemas de aprendizaje por refuerzo que utilizan métodos basados ​​en modelos.
 * __Q value or action value (Q):__ El valor Q es bastante similar al valor. La única diferencia entre los dos es que toma un parámetro adicional como una acción actual.
-
-## CoreML 
-Core ML es la base de los frameworks y la funcionalidad específicos del dominio. Core ML admite Vision para analizar imágenes, Lenguaje Natural para procesar texto, Voz para convertir audio a texto y Análisis de sonido para identificar sonidos en audio. Core ML se construye sobre primitivas de bajo nivel como Accelerate y BNNS, así como Metal Performance Shaders.
-
-![coreml2](/coreml2.png)
-
-Core ML integra modelos de machine learning en una aplicación. Core ML proporciona una representación unificada para todos los modelos. Su aplicación utiliza las API de Core ML y los datos del usuario para hacer predicciones y entrenar o ajustar modelos, todo en el dispositivo del usuario.
-
-![coreml1](/coreml1.png)
-
-Un modelo es el resultado de aplicar un algoritmo de machine learning a un conjunto de datos de entrenamiento. Utiliza un modelo para hacer predicciones basadas en nuevos datos de entrada. Los modelos pueden realizar una amplia variedad de tareas que serían difíciles o poco prácticas para escribir en el código. Por ejemplo, puede entrenar a un modelo para categorizar fotos o detectar objetos específicos dentro de una foto directamente desde sus píxeles.
-
-### Primeros pasos para iniciar con CoreML:
-
-* __Tener un modelo CoreML:__
-Core ML admite una variedad de modelos de aprendizaje automático, que incluyen redes neuronales, conjuntos de árboles, máquinas de vectores de soporte y modelos lineales generalizados. Core ML requiere el formato de modelo Core ML (modelos con una extensión de archivo .mlmodel).
-Con Create ML y sus propios datos, puede entrenar modelos personalizados para realizar tareas como reconocer imágenes, extraer significado del texto o encontrar relaciones entre valores numéricos. Los modelos entrenados con Create ML están en el formato de modelo Core ML y están listos para usar en su aplicación.
-
-![coreml3](/coreml3.png)
-Ejemplo usando un entrenamiento de imagenes de flores
-![coreml4](/coreml4.png)
-
-* __Integrar el modelo CoreML a la aplicacion:__
-Utilizando un modelo ya hecho de apple, haremos un reconocimiento de mariscos. 
-[![descarga](/coreml5.png)](https://docs-assets.developer.apple.com/coreml/models/Inceptionv3.mlmodel)
-1.  __Creamos un proyecto nuevo llamado Mariscos, en Xcode:__
-![ejemplo](/ejemplo.png)
-2.  __Integramos el modelo que descargamos a nuestro proyecto:__
-![ejemplo1](/ejemplo1.png)
-![ejemplo2](/ejemplo2.png)
-3.  __Importamos los frameworks, y protocolos en el ViewController:__
-![ejemplo3](/ejemplo3.png)
-4.  __Integramos los objetos bar buttom item y image view:__
-![ejemplo4](/ejemplo4.png)
-5.  __Integramos los IBOutlets y IBActions que necesitamos:__
-![ejemplo5](/ejemplo5.png)
-6.  __Integrar funciones necesarias en el View Controller para hacer las coincidencias:__
-![ejemplo6](/ejemplo6.png)
-7.  __Probar la app en un iPhone:__
-![ejemplo7](/ejemplo7.png)
-8.  __Revisar los resultados en consola y determinar el porcentaje de confianza:__
-![ejemplo8](/ejemplo8.png)
-Como podemos ver la app logro reconocer que se le esta presentando aun lobster.
-* __Convertir modelos entrenados a Core ML:__
-Si su modelo se crea y se entrena utilizando un marco de aprendizaje automático de terceros compatible, puede usar las herramientas Core ML o una herramienta de conversión de terceros, como el convertidor MXNet o el convertidor TensorFlow, para convertir su modelo al Core ML formato del modelo De lo contrario, debe crear sus propias herramientas de conversión.
-
-    Core ML Tools es un paquete de Python que convierte una variedad de tipos de modelos al formato de modelo Core ML. La Tabla enumera los modelos admitidos y los frameworks de terceros
-![coreml5](/coreml6.png)
-
-

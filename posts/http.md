@@ -1,10 +1,15 @@
-# Protocolo HTTP 
+---
+title: Protocolo HTTP
+category: foundations
+---
+
+# Protocolo HTTP
 
 ## *Definición*
 
-HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo en el que se basa la Web. Fue inventado por Tim Berners-Lee entre los años 1989-1991. HTTP ha visto muchos cambios, manteniendo la mayor parte de su simplicidad y desarrollando su flexibilidad. Es la base de cualquier intercambio de datos en la Web, y un protocolo de estructura cliente-servidor, esto quiere decir que una petición de datos es iniciada por el elemento que recibirá los datos (el cliente), normalmente un navegador Web. 
+HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo en el que se basa la Web. Fue inventado por Tim Berners-Lee entre los años 1989-1991. HTTP ha visto muchos cambios, manteniendo la mayor parte de su simplicidad y desarrollando su flexibilidad. Es la base de cualquier intercambio de datos en la Web, y un protocolo de estructura cliente-servidor, esto quiere decir que una petición de datos es iniciada por el elemento que recibirá los datos (el cliente), normalmente un navegador Web.
 
-- - - 
+- - -
 
 ## *Versiones*
 
@@ -21,16 +26,16 @@ HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo e
     * Una conexión podía ser reutilizada, ahorrando así el tiempo de re-abrirla repetidas veces para mostrar los recursos empotrados dentro del documento original pedido.
     * Enrutamiento ('Pipelining') se añadió a la especificación, permitiendo realizar una segunda petición de datos, antes de que fuera respondida la primera, disminuyendo de este modo la latencia de la comunicación: cabecera _Connection_ con el valor _keep-alive_.
     * Se permitió que las respuestas a peticiones, podían ser divididas en sub-partes.
-    * Se añadieron controles adicionales a los mecanismos de gestión de la cache. 
-    * La negociación de contenido, incluyendo el lenguaje, el tipo de codificación o tipos, se añadieron a la especificación, permitiendo que servidor y cliente, acordaran el contenido más adecuado a intercambiarse. 
-    * Gracias a la cabecera _Host_, pudo ser posible alojar varios dominios en la misma dirección IP. 
-    
+    * Se añadieron controles adicionales a los mecanismos de gestión de la cache.
+    * La negociación de contenido, incluyendo el lenguaje, el tipo de codificación o tipos, se añadieron a la especificación, permitiendo que servidor y cliente, acordaran el contenido más adecuado a intercambiarse.
+    * Gracias a la cabecera _Host_, pudo ser posible alojar varios dominios en la misma dirección IP.
+
 
 * #### HTTP/2.0
 
     * Es un protocolo binario, en contraposición a estar formado por cadenas de texto, tal y como estaban basados las versiones anteriores. Así no se puede leer directamente, ni crear manualmente.  
-    * Es un protocolo multiplexado. Peticiones paralelas pueden hacerse sobre la misma connexión, no está sujeto pues a mantener el orden de los mensajes, ni otras restricciones que tenían los protocolos anteriores HTTP/1.x 
-    * Comprime las cabeceras, ya que estas, normalmente son similares en un grupo de peticiones. Esto elimina la duplicación y retardo en los datos a transmitir. 
+    * Es un protocolo multiplexado. Peticiones paralelas pueden hacerse sobre la misma connexión, no está sujeto pues a mantener el orden de los mensajes, ni otras restricciones que tenían los protocolos anteriores HTTP/1.x
+    * Comprime las cabeceras, ya que estas, normalmente son similares en un grupo de peticiones. Esto elimina la duplicación y retardo en los datos a transmitir.
     * Esto permite al servidor almacenar datos en la caché del cliente, previamente a que estos sean pedidos, mediante un mecanismo denominado 'server push'.
 
 - - -
@@ -39,7 +44,7 @@ HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el protocolo e
 
 Una URL para HTTP  normalmente consta de tres o cuatro componentes:
 
-### Scheme 
+### Scheme
 
 El esquema identifica el protocolo que se utilizará para acceder al recurso en Internet. Puede ser HTTP (sin SSL) o HTTPS (con SSL).
 
@@ -81,8 +86,8 @@ Pide una representación del recurso especificado. Por seguridad no debería ser
 
 _Ejemplo:_
 
-    GET /images/logo.png HTTP/1.1 
-    
+    GET /images/logo.png HTTP/1.1
+
 Explicación: obtiene un recurso llamado logo.png
 
 _Ejemplo con parámetros:_
@@ -247,7 +252,7 @@ Este código de respuesta significa que la URI  del recurso solicitado ha sido c
 *302 Found*
 
 Este código de respuesta significa que el recurso de la URI solicitada ha sido cambiado temporalmente. Nuevos cambios en la URI serán agregados en el futuro. Por lo tanto, la misma URI debe ser usada por el cliente en futuras solicitudes.
- 
+
 *303 See Other*
 
 El servidor envia esta respuesta para dirigir al cliente a un nuevo recurso solcitado a otra dirección usando una petición GET.
@@ -261,7 +266,7 @@ Esta es usada para propositos de "caché". Le indica al cliente que la respuesta
 Fue definida en una versión previa de la especificación del protocolo HTTP para indicar que una respuesta solicitada debe ser accedida desde un proxy. Ha quedado obsoleta debido a preocupaciones de seguridad correspondientes a la configuración de un proxy.
 
 *306 unused*
- 
+
 Este código de respuesta ya no es usado más. Actualmente se encuentra reservado. Fue usado en previas versiones de la especificación HTTP1.1.
 
 *307 Temporary Redirect*
@@ -443,7 +448,7 @@ El código de estado 511 indica que el cliente necesita auntenticar para ganar a
 La primera línea es la request line y el resto son cabeceras HTTP.
 Una petición de HTTP, está formado  por los siguientes campos:
 
-* Un método HTTP. El objetivo de un cliente, suele ser una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando POST, aunque en otras ocasiones puede hacer otros tipos de peticiones. 
+* Un método HTTP. El objetivo de un cliente, suele ser una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando POST, aunque en otras ocasiones puede hacer otros tipos de peticiones.
 * La dirección del recurso pedido (Path).
 * Cabeceras HTTP opcionales, que pueden aportar información adicional a los servidores.
 * Opcional, un cuerpo de mensaje en algún método, como puede ser POST, en el cual envía la información para el servidor.
@@ -457,30 +462,20 @@ Las respuestas están formadas por los siguentes campos:
 
 * La versión del protocolo HTTP que están usando.
 * Un código de estado, indicando si la petición ha sido exitosa, o no, y debido a que.
-* Un mensaje de estado, una breve descripción del código de estado. 
+* Un mensaje de estado, una breve descripción del código de estado.
 * Cabeceras HTTP, como las de las peticiones.
 * Opcionalmente, el recurso que se ha pedido.
-
 
 
 ## Fuentes
 
 * [Componentes de URL](https://www.ibm.com/support/knowledgecenter/SSGMCP_5.1.0/com.ibm.cics.ts.internet.doc/topics/dfhtl_uricomp.html)
-
 * [Versiones de HTTP](https://somostechies.com/que-es-http2/)
-
 * [Versiones de HTTP (2)](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP)
-
 * [Métodos de HTTP](https://sites.google.com/site/httpsprotocolo/versiones-de-http)
-
 * [Métodos de HTTP (2)](https://es.wikibooks.org/wiki/M%C3%A9todos_HTTP)
-
 * [Mensajes HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Overview)
-
 * [Códigos de respuesta](https://developer.mozilla.org/es/docs/Web/HTTP/Status)
-
 * [Códigos de respuesta (2)](https://kinsta.com/es/blog/codigos-de-estado-de-http/)
-
 * [Headers](https://developer.mozilla.org/es/docs/Web/HTTP/Headers)
-
 * [Headers (2)](http://redesdecomputadores.umh.es/aplicacion/HTTP.htm)
