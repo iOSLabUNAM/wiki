@@ -41,8 +41,6 @@ GEM
       danger-plugin-api (~> 1.0)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
-    danger-prose (2.0.7)
-      danger
     dnsruby (1.61.3)
       addressable (~> 2.5)
     em-websocket (0.5.1)
@@ -278,7 +276,6 @@ PLATFORMS
 DEPENDENCIES
   danger
   danger-commit_lint
-  danger-prose
   github-pages
 
 RUBY VERSION
