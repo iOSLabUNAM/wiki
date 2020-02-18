@@ -8,6 +8,6 @@ warn('Big PR') if git.lines_of_code > 500
 
 commit_lint.check
 
-prose.language 'es-es'
+prose.language = 'es-es'
 prose.lint_files '_posts/*.md'
 prose.check_spelling '_posts/*.md'
