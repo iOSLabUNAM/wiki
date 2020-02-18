@@ -52,7 +52,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 
 ## Kits de Desarrollo
 - [CoreML](posts/coreml)
-- [HealthKit](posts/healthkit)
+- [HealthKit](posts/health-kit)
 
 ## Apendice
 
