@@ -18,9 +18,9 @@ jobs:
           key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gem-
       - name: Install dependencies
-        run:
-          - gem install bundler --no-document
-          - bundle install
+        run: |
+          gem install bundler --no-document;
+          bundle install
       - name: Run code validation
         run: bundle exec danger
         env:
