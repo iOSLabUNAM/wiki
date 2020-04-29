@@ -60,6 +60,13 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Code Reviews](posts/code-reviews)
 - [3rd Party libraries](posts/3rd-party-libraries)
 - [Ruby para Swifteros](posts/ruby-for-swifters)
+- [Servicios Restful](posts/restful-services)
+
+## Cheatsheets
+
+- [Git](posts/git-cheatsheet)
+- [Markdown](posts/markdown-cheatsheet)
+- [Unit Test](posts/unit-tests-cheatsheet)
 - Patrones de diseño:
   - [SOLID](posts/solid)
   - [MVC](posts/mvc)
