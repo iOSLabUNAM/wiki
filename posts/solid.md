@@ -1,6 +1,6 @@
 ---
 title: Solid
-category: annex
+category: design patterns
 ---
 # S.O.L.I.D.
 

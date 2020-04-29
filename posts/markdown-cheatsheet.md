@@ -1,10 +1,9 @@
 ---
-title: Markdown Cheat Sheet
-category: annex
+title: Markdown Cheatsheet
+category: appendix
 ---
 
-# Markdown Cheat Sheet
-
+# Markdown Cheatsheet
 
 ## Encabezados
 

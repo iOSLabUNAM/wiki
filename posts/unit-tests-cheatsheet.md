@@ -1,6 +1,6 @@
 ---
 title: Unit Tests Cheatsheet
-category: annex
+category: appendix
 ---
 
 # Unit Tests Cheatsheet
