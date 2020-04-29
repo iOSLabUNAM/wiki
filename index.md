@@ -49,6 +49,7 @@ Base de conocimientos de la comunidad del iOSLab-UNAM
 - [Common Crypto](posts/common-crypto)
 - [Notification Center](posts/notification-center)
 - [Alertas](posts/alerts)
+- [Cloudkit](posts/cloudkit)
 
 ## Kits de Desarrollo
 - [CoreML](posts/coreml)
