@@ -1,4 +1,6 @@
-# iOSLab - Wiki
+---
+layout: home
+---
 
 Base de conocimientos de la comunidad del iOSLab-UNAM
 

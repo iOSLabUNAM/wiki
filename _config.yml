@@ -1,4 +1,40 @@
 title: iOSLab Wiki
-logo: /assets/img/logo.png
+longtitle: iOSLab Wiki
+author: Luis Ezcurdia
+email: ing.ezcurdia@gmail.com
 description: Base de conocimientos de la comunidad del iOSLab-UNAM
-theme: jekyll-theme-minimal
+logo: /assets/img/logo.png
+
+version:          1.0
+gitbook_version:  3.2.3
+
+url: 'https://ioslabunam.github.io'
+baseurl: '/wiki'
+rss: RSS
+
+# markdown render engine.
+markdown:         kramdown
+kramdown:
+  auto_ids:               true
+  input:                  GFM
+  math_engine:            mathjax
+  smart_quotes:           lsquo,rsquo,ldquo,rdquo
+  toc_levels:             1..6
+  syntax_highlighter:     rouge
+  syntax_highlighter_opts:
+    guess_lang:           true
+
+markdown_ext:     markdown,mkdown,mkdn,mkd,md
+
+# Permalinks
+permalink:        /:categories/:title:output_ext
+
+exclude:
+  - _drafts
+
+destination:      ./_site
+incremental:      false
+regenerate:       true
+
+plugins:
+  - jemoji
