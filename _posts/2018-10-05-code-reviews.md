@@ -4,8 +4,6 @@ category: workflow
 layout: post
 ---
 
-# Code Reviews
-
 At my current company, we do a fair amount of code reviews. I had never done one
 before I started here so it was a new experience for me. I think it’s a good idea
 to crystalize some of the things I look for when I’m doing code reviews and talk

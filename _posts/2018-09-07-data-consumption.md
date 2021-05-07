@@ -1,10 +1,9 @@
 ---
-title: Consumo de datos
+title: Consumo de servicios
 category: ios
 layout: post
 ---
 
-# Consumo de datos
 
 ### Ejemplo completo
 

@@ -5,8 +5,6 @@ author: Rodolfo Ortiz
 layout: post
 ---
 
-# Introduccion a ARKit
-
 La realidad aumentada nos permite entremezclar el mundo real con el virtual de manera contextualizada. Para lograr esta ilusión se requiere procesar en tiempo real el movimiento del dispositivo que se está utilizando para poder modificar diferentes características del contenido virtual que se quiere mostrar, como lo son la posición, la escala o la rotación de los objetos.
 
 Con las capacidades técnicas que se iban presentando en las útlimas generaciones de dispositivos Apple la realidad aumentada podía ser implementada. Sin embargo, el gran reto para el programador consistía en la complejidad de crear los algoritmos de detección de objetos en el mundo real para luego poder desplegar objetos virtuales. Es por esto que Apple creó **ARKit**, un framework para poder crear proyectos inmersivos de realidad aumentada de manera más sencilla.

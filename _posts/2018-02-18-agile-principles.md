@@ -4,8 +4,6 @@ category: foundations
 layout: post
 ---
 
-# Principios Agiles
-
 ## Don't Repeat Yourself (DRY)
 
 Este principio nos permite crear abstracciones a nuestro codigo, evitando la repeticion de codigo. Como regla si una pieza de codigo se repite al menos 3 veces, es necesario refactorizar a que se escriba una vez y se llame 3 veces.

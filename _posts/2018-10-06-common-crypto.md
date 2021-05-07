@@ -4,8 +4,6 @@ category: core library
 layout: post
 ---
 
-# CommonCrypto
-
 La libreria CommonCrypto soporta encriptacion simetrica, mensajes basados en codigos de authenticacion hash, y sumatorias de comprobacion.
 
 ## Bridge

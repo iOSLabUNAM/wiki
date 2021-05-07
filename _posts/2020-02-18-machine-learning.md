@@ -4,8 +4,6 @@ category: foundations
 layout: post
 ---
 
-# ¿Qué es Machine Learning?
-
 Machine Learning es una capa habilitadora horizontal, este enfoque le da a la computadora instrucciones que le permiten aprender de los datos sin nuevas instrucciones paso a paso por parte del programador. Esto significa que las computadoras se pueden usar para tareas nuevas y complicadas que no se pueden programar manualmente. Cosas como aplicaciones de reconocimiento de fotos para personas con discapacidad visual o traducir imágenes al habla.
 
 El proceso básico de Machine Learning es proporcionar datos de entrenamiento a un algoritmo de aprendizaje. El algoritmo de aprendizaje genera un nuevo conjunto de reglas, basado en inferencias de los datos. En esencia, esto genera un nuevo algoritmo, formalmente denominado modelo de aprendizaje automático. Al usar diferentes datos de entrenamiento, el mismo algoritmo de aprendizaje podría usarse para generar diferentes modelos. Por ejemplo, el mismo tipo de algoritmo de aprendizaje podría usarse para enseñarle a la computadora cómo traducir idiomas o predecir el mercado de valores.

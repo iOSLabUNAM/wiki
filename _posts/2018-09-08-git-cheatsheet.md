@@ -4,8 +4,6 @@ category: appendix
 layout: post
 ---
 
-# Git Cheatsheet
-
 ## Configuracion inicial
 
 Configurar email

@@ -4,8 +4,6 @@ category: appendix
 layout: post
 ---
 
-# Unit Tests Cheatsheet
-
 ## XCTestCase
 
 Estructura Base

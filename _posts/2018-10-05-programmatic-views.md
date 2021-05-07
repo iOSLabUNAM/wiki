@@ -4,8 +4,6 @@ category: ios
 layout: post
 ---
 
-# Vistas Programaticas
-
 Todos los elementos del utilizados en el interface builder, tanto en Storyboards y Xibs
 corresponden a objetos del UIKit, por lo tanto pueden ser instanciables y extensibles desde codigo.
 

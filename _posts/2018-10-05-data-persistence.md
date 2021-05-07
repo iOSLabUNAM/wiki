@@ -4,9 +4,6 @@ category: ios
 layout: post
 ---
 
-
-# Persistencia de datos
-
 ## UserDefaults
 - [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults)
 

@@ -4,8 +4,6 @@ category: workflow
 layout: post
 ---
 
-# Metodologías agiles
-
 ## Manifiesto Ágil
 
 - **Individuos e interacciones** sobre procesos y herramientas

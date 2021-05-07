@@ -4,8 +4,6 @@ category: ios
 layout: post
 ---
 
-# Notification Center
-
 Es el mecanismo de envío de notificaciones que permite la transmisión de información a los observadores registrados. Este mecanismo permite transmitir datos de una parte de su aplicación a otra. Utilizando el patrón de *Observer* para informar a los observadores registrados cuando llega una notificación, utilizando el *Grand Central Dispatch* para el llamado de de notificaciones. Consta de 3 elementos:
  - Un "listener" que escucha las notificaciones, llamado observador
  - Un "sender" que envía notificaciones cuando algo sucede.

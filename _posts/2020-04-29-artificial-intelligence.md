@@ -4,16 +4,10 @@ category: general
 layout: post
 ---
 
-# Inteligencia Artificial en iOS
-
 - [Conceptos Básicos](#conceptos-básicos)
-
 - [CreateML](#createml)
-
 - [Ejemplo CreateML](#cómo-crear-un-modelo-utilizando-createml)
-
 - [CoreML](#coreml)
-
 - [Ejemplo de CoreML](#cómo-integrar-un-modelo-utilizando-coreml)
 
 ___

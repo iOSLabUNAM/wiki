@@ -4,8 +4,6 @@ category: development kit
 layout: post
 ---
 
-# HealthKit
-
 ![HK](https://developer.apple.com/assets/elements/icons/healthkit/healthkit-96x96_2x.png)
 
 **[HealthKit](https://developer.apple.com/healthkit/)** es un framework de desarrollo usado para acceder a datos almacenados en la **Health app**.

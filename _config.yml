@@ -3,13 +3,12 @@ longtitle: iOSLab Wiki
 author: Luis Ezcurdia
 email: ing.ezcurdia@gmail.com
 description: Base de conocimientos de la comunidad del iOSLab-UNAM
-logo: /assets/img/logo.png
 
 version:          1.0
 gitbook_version:  3.2.3
 
 url: 'https://ioslabunam.github.io'
-baseurl: '/wiki'
+baseurl: '/wiki/'
 rss: RSS
 
 # markdown render engine.
@@ -27,7 +26,7 @@ kramdown:
 markdown_ext:     markdown,mkdown,mkdn,mkd,md
 
 # Permalinks
-permalink:        /:categories/:title:output_ext
+permalink:        /:categories/:title
 
 exclude:
   - _drafts

@@ -1,10 +1,8 @@
 ---
-title: Librerias de terceros
+title: Librerias de terceros (3rd party libraries)
 category: workflow
 layout: post
 ---
-
-# Librerias de terceros (3rd party libraries)
 
 Siempre es importante considerar que en muchas de las ocaciones en los que enfrentamos problemas a resolver alguien mas lo ha resuelto de una manera mas sencilla y optima. Y que muchas veces no necesitamos reinventar el hilo negro. Para ello existen diversar formas de inegrar librerias de terceros(3rd party libraries) a nuestro proyecto.
 

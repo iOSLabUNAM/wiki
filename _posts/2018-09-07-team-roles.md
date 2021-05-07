@@ -4,8 +4,6 @@ category: workflow
 layout: post
 ---
 
-# Roles de equipo
-
 En los diferentes tipos de proyectos es necesario establecer roles claros para mantener un trabajo colaborativo. En algunas circunstancias una persona puede asumir mas de un rol, pero si el equipo es lo suficientemente grande esto deve de evitarse.
 
 ## Developer
