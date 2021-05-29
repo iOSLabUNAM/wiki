@@ -1,5 +1,5 @@
 ---
-title: Principios Agiles
+title: Acronimos Agiles
 category: foundations
 layout: post
 ---
@@ -11,7 +11,6 @@ Este principio nos permite crear abstracciones a nuestro codigo, evitando la rep
 ## Keep It Simple Stupid (KISS)
 
 Over engineering es muy comun entre ingenieros que al buscar un producto robusto tienden a complicarlo mas de lo necesario. Para luchar con esto se busca que tanto el codigo como la experiencia de usuario sea lo mas simple posible. Mantener un balance de simplicidad con robustes es dificil, pero no imposible.
-
 
 ## You Aren't Gonna Need It (YAGNI)
 
