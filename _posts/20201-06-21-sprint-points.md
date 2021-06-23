@@ -47,20 +47,20 @@ Story points allow you to calculate team velocity and estimate work in an object
 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100
 
 ### What Goes Into a Story Point?
-In the Agile Methods like XP(`Extreme Programming`) and Scrum have a planning phase for development team members to discuss each prioritised backlog item and collectively estimate the effort involved to complete, and then make a Sprint forecast outlining how much work the team can achieve within the Sprint. The collective effort estimation is where story points come in. Story points represent the overall effort required to fully implement a product backlog item or any other piece of work. In the Scrum literature, the effort is a multi-facet construct consisting of risk, complexity and repetition.
+The Agile Methods like XP(`Extreme Programming`) and Scrum have a planning phase for development team members to discuss each prioritised backlog item and collectively estimate the effort involved to complete, and then make a Sprint forecast outlining how much work the team can achieve within the Sprint. The collective effort estimation is where story points come in. Story points represent the overall effort required to fully implement a product backlog item or any other piece of work. In the Scrum literature, the effort is a multi-facet construct consisting of risk, complexity and repetition.
 
 ![effort in Scrum](/wiki/assets/img/effort.png)
 
 Because story points represent the effort to develop a story, a team’s estimate must include everything that can affect the effort. That could include:
 - The amount of work to do
 - The complexity of the work
-- Any risk or uncertainty in doing the work. You should consider dependencies you might have as you work, these can be both internal (i.e. a MS someone else developed and you have no prior knowledge of) and external (i.e. a third party integration such as Auth0)
+- Any risk or uncertainty in doing the work. You should consider dependencies you might have as you work, these can be both internal (i.e. an MS someone else developed and you have no prior knowledge of) and external (i.e. a third party integration such as Auth0)
 
 When estimating with story points, be sure to consider each of these factors. Let’s see how each impacts the effort estimate given by story points.
 
 ### Consider Everything in the Definition of Done
 
-A story point estimate must include everything involved in getting a product backlog item all the way to done.
+A story point estimate must include everything involved in getting a product backlog item all the way to do.
 
 - Docs (If required)
 - Tests (unit, integration tests)
@@ -91,7 +91,7 @@ The bottom line is, it’s difficult to estimate the precise amount of time need
 
 Since story points are an Agile estimating method, they make no definite commitment (like within one week or next Friday). Instead, they provide a relative estimation of the overall effort that’ll go into a task.
 
-This will help reduce unnecessary stress of meeting tight, unrealistic deadlines. Instead, you’re left with a far more reasonable and accurate estimate.
+This will help reduce the unnecessary stress of meeting tight, unrealistic deadlines. Instead, you’re left with a far more reasonable and accurate estimate.
 
 ## Story points aren’t subjective
 Sometimes, people differ in their estimations for how long a task in an Agile project is going to take. This often leads to subjectivity while using time estimates.
@@ -118,7 +118,7 @@ The second story, of course! Compared to it, the first story won’t take much w
 So the second story will get more points than the first one because of the greater story size.
 
 ### Risk and uncertainty 
-Eevery project has its risks and uncertainties, especially with certain types of backlog items.
+EEveryproject has its risks and uncertainties, especially with certain types of backlog items.
 
 For example: if the product backlog item involves working with a new framework that your team doesn’t have much experience with, that risk factor will increase the story point value.
 
@@ -133,7 +133,7 @@ The first one is a piece of cake, just some tweaks here and there and voila!. Th
 Naturally, during the effort estimation process, such user stories clearly earn more points.
 
 ## How Story Points Are Calculated In Agile?
-You can calculate Agile story points by creating a base story, choosing your scale and estimation technique, and then calculating accordingly.
+You can calculate Agile story points by creating a base story, choosing your scale and estimation technique, and then calculated accordingly.
 
 Story point estimation is usually done by using a method called ‘the planning poker.’
 ### Set up the poker table (create a base story)
@@ -168,15 +168,16 @@ During this Agile estimation meeting:
 * If they don’t match, the estimators discuss further to reach a consensus
 
 By the end of the planning poker, our table will be filled with user stories beside their assigned points. 
+
 Expect the story point estimation matrix to look something like this:
 
 ![sprint point table fullfilled](/wiki/assets/img/sprint_points_full.png)
 
 `Important Disclaimer!`
 
-Many times when a team is nos sync, the person who will take a task will have the last word about the sprint point number to be assigned, remember that the practice makes you perfect and no one should force you to have the same rithm also if you are starting with a new team.
+Many times when a team is nos sync, the person who will take a task will have the last word about the sprint point number to be assigned, remember that the practice makes you perfect and no one should force you to have the same rhythm also if you are starting with a new team.
 
-Sprint points technique allows you and your teams to become tecnically equal when time passes and is a very fexible technique.
+Sprint points technique allows you and your teams to become technically equal when time passes and is a very flexible technique.
 
 ### Calculating team velocity and planning project schedule 
 After the estimation meeting, the [sprint backlog](https://clickup.com/blog/sprint-backlog/) is created after a backlog refinement session, and the team works on the stories.
@@ -199,7 +200,7 @@ The effort estimated in a Sprint is a latent concept, meaning cannot be directly
 Due to the different views on the story point and the under-defined steps to estimate, it is not surprising to observe several methods used to estimate story point in practice.
 
 ### Use the First Story as a Benchmark
-Assign a number for the first story. Any other story in this Sprint will be compared to the first story. Future Sprints will repeat this process and align on the same scale. For example, if a story is about the same amount of work like the one you have already sized, give it the same number of points. It is clear that the effort estimation is done relatively.
+Assign a number for the first story. Any other story in this Sprint will be compared to the first story. Future Sprints will repeat this process and align on the same scale. For example, if a story is about the same amount of work as the one you have already sized, give it the same number of points. It is clear that the effort estimation is done relatively.
 #### Pros
 
 * The human brain is good at comparing, and therefore, this method has a less cognitive load.
@@ -214,7 +215,7 @@ Assign a number for the first story. Any other story in this Sprint will be comp
 
 
 ### T-Shirt Sizes
-Use multiple sizes such as extra-small (XS), small (S), medium (M), large (L) and extra-large (XL) to estimate the effort at a high-level. Each size corresponds to a value from the Fibonacci sequence, e.g. XS — 1, S — 2, M — 3, L — 8, XL — 13.
+Use multiple sizes such as extra-small (XS), small (S), medium (M), large (L) and extra-large (XL) to estimate the effort at a high level. Each size corresponds to a value from the Fibonacci sequence, e.g. XS — 1, S — 2, M — 3, L — 8, XL — 13.
 #### Pros
 * As it gives a quick and rough estimate for how much work is expected for a project, it is time-efficient.
 * Independent to time, this method rewards team members for solving problems and focus on value delivery.
@@ -222,7 +223,7 @@ Use multiple sizes such as extra-small (XS), small (S), medium (M), large (L) an
 #### Cons
 * It is unclear how risk, complexity and repetition attribute to the size estimation, and therefore difficult to achieve consistency over time.
 * The nature of the various T-Shirt sizes is ordered categories, corresponding to the ordinal scale. When converting to the Fibonacci sequence as story points, the value assignment is arbitrary. Someone can easily challenge why a size gets assigned to one value instead of another.
-* The summation, subtraction and average on the story points are not meaningful, e.g. Does the difference in effort between a medium size story and a small size story is extra-small size story? What does velocity as 20 story points mean, e.g. two large and two small stories?
+* The summation, subtraction and average on the story points are not meaningful, e.g. Does the difference in effort between a medium size story and a small size story is an extra-small size story? What does velocity as 20 story points mean, e.g. two large and two small stories?
 * This method doesn’t translate from story points to the time required to completed and therefore, couldn’t answer a common question from stakeholder: how long will feature A be completed?
 
 Note: Some other methods refer to effort different from T-Shirt sizes, such as animals and gummy bears. Essentially they’re the same idea.
