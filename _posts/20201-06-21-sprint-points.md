@@ -19,7 +19,7 @@ At the end of every iteration, you develop a version of your product called an i
 You then incorporate this feedback into your next iteration planning process and repeat until you have a final product.
 
 ## What Are Agile Story Points?
-Before we talk about what a story point is, we need to understand two terms: ‘user story’ and ‘product backlog.’ 
+Before we talk about what a story point is, we need to understand two terms: ‘user story’ and ‘product backlog’ 
 
 * A user story is an informal explanation of features that your user wants in the system.  A real-world user story example is: “As a gamer, I want my hero to be able to fly.” 
 

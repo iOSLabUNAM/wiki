@@ -23,8 +23,8 @@ Es usual que las empresas usen herramientas de versionado como lo son GitHub y G
 | Tipo  | `ms - Microservicio` > `fn - Lambda Function (Azure Function)` > `fw - Framework` > `back - Backend` > `front - Frontend` > `npm - Librería para npm` > `nuget - Librería para nuget` > `int - integración con otra aplicación` > `mig - migraciones de otras aplicaciones` |
 | Descripción del proyecto | Descripción breve del nombre del proyecto. En algunos casos puede incluir el módulo al que corresponde. Siempre-va-separado-por-guiones-medios |
 
-De esta manera, un ejemplo para un microservicio que se encarga de crear y manejar notificaciones, que será usado en un ERP, pordría llamarse de la siguiente manera:
-> erp-ms-pending-item
+De esta manera, un ejemplo para un microservicio que se encarga de crear y manejar pendientes, que será usado en un ERP, pordría llamarse de la siguiente manera:
+> erp-ms-pending-items
 
 ## Branches
 
@@ -107,7 +107,7 @@ La nomenclatura a seguir para este branch es la siguiente **hotfix/x.x.x**
 
 #### ¿Por qué?
 
-Debido a que en una emprese se tienen varios proyectos que tienen muchas dependencias tenemos que tener un control para versionar nuestros productos de forma que con sólo leer la versión podamos identificar el estatus de un proyecto.
+Debido a que en una empresa se tienen varios proyectos que tienen muchas dependencias tenemos que tener un control para versionar nuestros productos de forma que con sólo leer la versión podamos identificar el estatus de un proyecto.
 
 Este sistema es un estándar llamado **[Semantic Versioning 2.0.0](https://semver.org/)** usa 3 números los cuáles se usan de esta forma.
 
@@ -135,7 +135,7 @@ Por ejemplo el proyecto A usa como dependencia la version 1.10.2 de B, si quiere
 
 #### Reglas
 
-1. Un número de versipon normal deberá tomar la siguiente estructura:  X.Y.Z donde  X, Y, y  Z son números enteros positivos, y no deberpa contener ceros a la izquierda. X corresponde al `major` versión, Y es the `minor` versión, y Z la `patch` versión. Cada elemento deberá ser incremental, por ejemplo: 1.9.0 -> 1.10.0 -> 1.11.0.
+1. Un número de versión normal deberá tomar la siguiente estructura:  X.Y.Z donde  X, Y, y  Z son números enteros positivos, y no deberpa contener ceros a la izquierda. X corresponde al `major` versión, Y es the `minor` versión, y Z la `patch` versión. Cada elemento deberá ser incremental, por ejemplo: 1.9.0 -> 1.10.0 -> 1.11.0.
 2. Una vez que se ha hecho release de los cambios, ** el contenido de esa versión NO DEBE modificarse. Cualquier modificación DEBE ser lanzada como una nueva versión.**
 3. La versión principal cero (0.y.z) es para el desarrollo inicial. Cualquier cosa PUEDE cambiar en cualquier momento. ** La API pública NO DEBE considerarse estable.**
 4. La versión 1.0.0 define la API pública. La forma en que se incrementa el número de versión después de esta versión depende de esta API pública y de cómo cambia.
@@ -164,7 +164,7 @@ Esto nos servirá para que cualquier miembro del  equipo pueda visualizar los ca
 - La última versión va primero.
 - Debe mostrar la fecha de publicación de cada versión.
 - Indicar si el proyecto sigue el [Versionamiento Semántico](https://semver.org/).
-- Cada versión se escribe a manera de titulo, acompañado por la fecha del release: `[v1.5.10] - 2021-06-21`
+- Cada versión se escribe a manera de título, acompañado por la fecha del release: `[v1.5.10] - 2021-06-21`
 - Mientras no se libere un release con la nueva versión, los cambios se sumen a la próxima liberación se pueden colocarse con la etiqueta: `[Unreleased]`
 
 #### Tipos de cambios
