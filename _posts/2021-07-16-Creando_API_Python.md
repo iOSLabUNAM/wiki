@@ -1,61 +1,16 @@
 ---
-title: Heroku
+title: Creando API con Python y Flask
 category: workflow
 author: Galileo Garibaldi
 layout: post
+
 ---
 
 ## Heroku
 
-En éste pequeño artículo hablaremos sobre la plataforma en la nube llamada Heroku. Así como un pequeño tutorial donde veremos como deployar tu primera aplicación en Heroku. **Importante: Ésto lo haremos con el lenguaje de programación *Python V3.8***
+En este pequeño artículo - Tutorial, veremos como crear una API en Python. **Importante: Ésto lo haremos con el lenguaje de programación *Python V3.8***
 
-### ¿Qué es Heroku?
-
-Heroku es una plataforma de servicio de computación en la nube, ésta te permitirá, *en pocos pasos*, alojar tu código y permitir *deplyarlo* (desplegarlo en un servidor).
-
-Heroku hacce énfasis en que necesitarás pocos pasos, ya que no es necesario configurar todos los pasos de un servidor a gran escala.
-
-### ¿Cómo funciona Heroku?
-
-Heroku funciona través de *Dynos*, estos *Dynos*, no son mas que pequeños contenedores, los cuales permiten a tu aplicación - Servicio, poder desplegarse ccon facilidad, seguridad y bajo la configuración que tu le digas. Todos estos *Dynos*, están basados en un UNIX y mas exáctamente en un sistema de tipo Debian
-
-De manera análoga, Heroku, provee de una interfaz de mantenimiento en su página web, lo que hace posible que la administración del mismo sea manejable de mejor manera.
-
-### ¿Que puedo hacer en Heroku
-
-Heroku nos ofrece varios servicios que nos pueden ayudar en nuestra aplicación, a continuación se describen algunos de ellos:
-
-- Heroku app:
-- Heroku Postgress:
-- Redis To go:
-- Redis Enterprise Cloud
-- Apache Kafka
-- SFTP to go
-- MSSQL
-- Buketeer
-- JawsDB MySQL
-
-Cada una de éstas tecnologías son configurables desde la interfaz web de heroku, o bien desde línea de comandos en la terminal
-
-### Mis primeros Pasos en Heroku
-
-Para este tutorial es importante aclarar que se hará una API, ésto con ayuda del lenguaje de programación Python.
-
-#### 1.- Crear cuenta en Heroku
-
-Lo primero que necesitaremos será crear una cuenta en la plataforma de [Heroku](https://www.heroku.com), en ella te pedirá llenar algunos datos de información personal. 
-
-**NOTA: Si es tu primera vez trabajando con heorku te recomiendo poner en el campo *Company Name* la palabra *UNAM* y en *Role* el campo *Student* o bien *Hobbyst***
-
-Para éste caso se pondrá *python* como lenguaje de programación principal **Aunque esto no significca que sólo construiremos aplicaciones en éste lenguaje, es sólo un parámetro para Heroku**
-
-<img src="../assets/img/Heroku/1.png" alt="1" style="zoom:80%;" />
-
-Posterior a esto, te pedirá confirmar tu correo electrónicco.
-
-**NOTA: Heroku te pedirá ingresar una tarjeta de pago, esta puede ser de Débito o crédito, pero no se te hará ningún pago o coste, puedes estar tranquilo de que no se te cobrará al menos que así lo desees.**
-
-#### 2.- Configurando Python
+## 1.- Configurando Python
 
 Ya que tenemos nuestra cuenta creada, crearemos un entorno virtual de python con las siguientes líneas de comando
 
@@ -103,9 +58,9 @@ Una vez teniendo configurado nuestro entorno virtual, proccederemos a instalar l
 
       Este Archivo nos servirá para la configuración en heroku, este contiene las librerías y configruaciones que hemos hecho hasta ahora. **Importante: Cada vez que se instale una nueva librería, éste archivo deberá actualizarse, escribiendo el comando anteriormente mencionado**
 
-#### 3.- Empezamos a codificar
+## 3.- Empezamos a codificar
 
-##### 3.1 Primeros pasos
+### 3.1 Primeros pasos
 
 Una vez que tenemos todo listo, es hora de empezar a codificar. 
 
@@ -133,7 +88,7 @@ if __name__ == "__main__":
 
 Sin embargo esto es aún muy poco útil, por lo que procederemos a poner un poco de sabor a las cosas
 
-##### 3.2 Configurando Templates
+### 3.2 Configurando Templates
 
 Hasta ahorita sólo tenemos algunos pocos archivos, **Nota: El archivo se debe llamar *requirements.txt***
 
@@ -195,7 +150,7 @@ if __name__ == "__main__":
     app.run(debug=True,port=5003)
 ```
 
-##### 3.3 Configurando nuestra ruta de API
+### 3.3 Configurando nuestra ruta de API
 
 Para este ejemplo usaremos una API de películas, está API tendrá la siguiente estructura:
 
@@ -266,7 +221,7 @@ Si nos vamos a la ruta http://127.0.0.1:5003/api, podremos visualizar nuestro re
 
 <img src="../assets/img/Heroku/6.png" alt="6" style="zoom:80%;" />
 
-##### 3.4 Configurando nuestra BD en Postgres Heroku
+### 3.4 Configurando nuestra BD en Postgres Heroku
 
 Para este punto nos iremos a la pantalla principal de heroku y daremos en **New** y en **Create a New App**
 
@@ -308,7 +263,7 @@ De aquí tomaremos los siguientes datos
 
 **Importante:** Estas credenciales en el plan *hobby dev*, no son permamemtes, por lo que es importante revisar constantemente que estas sean válidas.
 
-##### 3.5 Configurando el acceso a nuestra base en Python
+### 3.5 Configurando el acceso a nuestra base en Python
 
 Ahora nos concentraremos en conectar la base de datos con nuestro código de python, esto lo haremos con ayuda del módulo *psycopg2*
 
@@ -393,7 +348,7 @@ def consulta():
 
 
 
-##### 3.6 Configurando las rutas de nuestra API
+### 3.6 Configurando las rutas de nuestra API
 
 En este punto está casi todo listo, agregaremos un par de rutas, las cuales harán posible la consulta hacía la API y la creación y/o eliminación de dicha tabla:
 
@@ -509,117 +464,21 @@ if __name__ == "__main__":
     app.run(debug=True,port=5003)
 ```
 
-A continuación se presenta la salida de la API
+### Referencias
 
-#### 4.- Subiendo mi proyecto a Heroku
-
-Hasta ahorita, tenemos la siguiente estructura de archivos
-
-<img src="../assets/img/Heroku/16.png" alt="16" style="zoom:80%;" />
-
-Para poder subir nuestro proyecto a heroku, necesitaremos los siguientes archivos:
-
-1. Archivo de funcionamiento (código en Python):
-
-   1. En este caso, el archivo de funcionamiento principal es nuestro archivo **app.py**
-
-2. Archivo de requerimientos (Archivo *.txt*):
-
-   1. Este archivo es el que generamos en la sección 2, sin embargo puedes volver a generarlo o actualizarlo con el comando:
-
-      ```python
-      pip3 freeze > requirements.txt.txt
-      ```
-
-3. Archivo de configuración (*Procfile*): Archivo de configuración que usará heroku para saber quee *dyno* o que arhcivo debe correr como principal
-
-   1. ```shell
-      echo "web: gunicorn app:app" > Procfile
-      ```
-
-      Esto generará un archivo sin extensión de nombre **Procfile**, el cual debe de contener como única línea *web: gunicorn app:app*
-
-4. Entorno Virtual a usar (*carpeta generada con venv*): Este entorno es la carpeta de configuración que anteriormente ya hicimos.
-
-Una vez teniendo todos los archivos listos, nos dirigiremos a nuestra cuenta de Heroku y nos iremos al menú **Deploy**, es importante tener en cuenta unas cuantas cosas
-
-<img src="../assets/img/Heroku/17.png" alt="17" style="zoom:80%;" />
-
-##### 4.2 Instalando Heroku en nuestra computadora
-
-Necesitaremos una instalación de Heroku CLI, el cual básicamente, es un cliente de heroku con el cual podremos deployar nuestro proyecto. Para ello, dejaré el enlace de instalación [Enlace Descarga - Instalación Heroku](https://devcenter.heroku.com/articles/heroku-cli).
-
-##### 4.3 Heroku Git (Con ningún repositorio creado)
-
-En esta opción asumimos o decimos que no tenemos una cuenta de github con nuestro nombre o bien, decidimos que nuestro código no se alojará en Github, si este es el caso, Heroku nos proporcionará un reposotior externo cone l único fin de poder Deployar nuestro proyecto.
-
-```
-git init
-heroku git:remote -a appdiplomado
-git add .
-git commit -am "make it better"
-git push heroku master
-```
-
-##### 4.4 Heroku Git - Github (Teniendo un repositorio Creado)
-
-![18](../assets/img/Heroku/18.png)
-
-La opcón mas recomendable es tener un repositorio en Github previamente cargado, lo que hará esta opción, será ligar una de nuestras ramas de Github (recomendablemente la master) a nuestro alojamiento en heroku, de manera tal, que si *commiteamos y pusheamos* a nuestro repo, este tambiñen se actualziará en nuestra app de heroku
-
-En este caso nis iremos a el apartado *Github Connect to Github* y elegiremos el repsositorio y la rama que querramos
-
-![19](../assets/img/Heroku/19.png)
-
-Después elegiremos la rama a la cual estará asociado y por último daremos en **Enable Automatic Deploys**
-
-**Opcion 1: **Lo último que haremos será commitear y pushear un cambio a nuestra app
-
-```shell
-git add .
-git commit -m "Deploy to Heroku"
-git push
-```
-
-**Opcion 2:** Podemos bajar y darle en *Deploy Manually* y procederá a hacer Deploy
-
-##### 4.5 Errores posibles durante el Deploy
-
-Si lllega a ocurrir un error duramte el deploy, es importante checar lo siguiente:
-
-1. Tener a la misma altura los archivos de *app.py*, *Procfile*(sin extension) y *requiriments.txt*
-
-2. En caso de que el error nos salte que no puede encontrar una versión de Python, teclear los siguientes comandos
-
-   1. ```shell
-      heroku buildpacks:set heroku/python
-      heroku buildpacks:set heroku/python --app appdiplomado
-      git push heroku main
-      ```
-
-   2. O bien, irse a la interfaz gráfica en el menú de settings (Página web de Heroku) y configurar un python package
-
-      ![20](../assets/img/Heroku/20.png)
-
-      ![21](../assets/img/Heroku/21.png)
-
-   3. Una vez hecho este cambio nos dirigiremos a las opciones Deploy y volveremos a deployar
-
-#### 5.- Referencias
-
-##### Código de Github
+#### Código de Github
 
 El código se ha hecho parte por parte y se encuentra en el siguiente enlace, si gustas puedes mejorarlo. ¡Eres bienvenido!
 
 https://github.com/galigaribaldi/Python_Web/tree/Deploy-Heroku
 
-##### Liga de Heroku
+#### Liga de Heroku
 
 El código se encuentra corriendo en el siguiente enlace: https://appdiplomado.herokuapp.com
 
-##### Referencias Externas
+#### Referencias Externas
 
 - [Entornos Virtuales](https://docs.python.org/es/3/tutorial/venv.html)
 - [Agregar Utilidades a Heroku](https://devcenter.heroku.com/categories/add-ons)
 - [Documentación Oficial de Heroku](https://devcenter.heroku.com/categories/reference)
-- [Documentación Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [Documentación Flask](
