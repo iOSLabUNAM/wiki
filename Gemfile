@@ -9,7 +9,7 @@ ruby '3.0.1'
 gem "jekyll", "~> 4.2.1"
 gem "minima", "~> 2.5"
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.16"
 end
 
 gem 'jemoji'
