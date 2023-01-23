@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-gem "jekyll", "~> 4.3.1"
+gem "jekyll", "~> 4.3.2"
 gem "jemoji"
 gem "minima", "~> 2.5"
 gem "rubocop"
