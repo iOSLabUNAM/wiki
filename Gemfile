@@ -11,5 +11,5 @@ gem "rubocop"
 gem "webrick"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.17"
+  gem "jekyll-feed", "~> 0.18"
 end
